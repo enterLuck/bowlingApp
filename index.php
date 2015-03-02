@@ -2,40 +2,52 @@
 <html lang="en" ng-app="bowlingApp">
 <head>
 	<meta charset="utf-8" />
-	<title></title>
-	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+	<title>Bowler World</title>
 
 	<link rel="stylesheet" href="stylesheet.css" />
 			<!--[if IE]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 			<![endif]--> 
-<script>
-var numberOfplayers=4;
-function startGame(){
-	numberOfplayers =prompt("How many Players");
-	console.log("here it is"+numberOfplayers);
-	for(i=0;i<numberOfplayers;i++){
-		console.log("got here");
-		prompt("What is the players name?");
-	}
-};
-</script>			
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+			 <!--<script type="text/json" src="frames.json"></script>
+			 <script type="text/json" src="players.json"></script>-->
+
+ <script>
+// var numberOfplayers=4;
+// function startGame(){
+// 	numberOfplayers =prompt("How many Players");
+// 	console.log("here it is"+numberOfplayers);
+// 	for(i=0;i<numberOfplayers;i++){
+// 		console.log("got here");
+// 		prompt("What is the players name?");
+// 	}
+// };
+ </script>			
 		</head>
-		<body>
+		<body ng-controller="playerController">
 			<h1 class="white roboto">Bowler World 2015!</h1>
-			<h3 class="white roboto">by Tim Brown </h1>
+			<h3 class="white roboto">by Tim </h1>
 			<aside>
 				<ul>
 					<li><img src="img/bowling-ball-start.png" id="start" /></li>
 					<li><img src="img/bowling-ball-reset.png" id="reset" /></li>
 					<li><img src="img/bowling-ball-bowl.png" id="bowl" /></li>
+					<li><p>How many Players?</p>
+						<select onchange="">
+							  <option value="1">1</option>
+							  <option value="2">2</option>
+							  <option value="3">3</option>
+							  <option value="4" selected>4</option>
+						</select>
+					</li>
 				</ul>	
 				<div id="result"></div>
 			</aside>	
 			<section id="main">
 					<table id="scoreboard" class="borderDarkest bgColorMedium">
 						<th class="colorDarkest roboto colorLtYellow font22">LET'S BOWL!</th>	
-						<!-- This row holds titles of the columns as follows: Name,Frame1......Frame10,Total -->
 						<!-- This row holds titles of the columns as follows: Name,Frame1......Frame10,Total -->
 
 						<!-- Scoreboard Title on separate page for code readability -->
@@ -46,19 +58,81 @@ function startGame(){
 						<tr ng-repeat="player in players">
 							
 							<td id="col0" class="scoreCol bgColorLightest colorDarkest borderDarkest">
-								{{player.name}}
+								<p>{{player.name}}</p>
 							</td>
-							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frames">
+							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame1">
 								<ul>
-									<li>Roll One: <input type="text" value="{{frame.firstRoll}}" readonly></input></li>
-									<li>Roll Two: <input type="text" value="{{frame.secondRoll}}" readonly></input></li>
-									<li>Pins Knocked Down: <input type="text" value="{{frame.knockedDown}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{frame.currentScore}}" readonly></input></li>
-								</ul>	
+									<li>Roll One: <input type="text" value="{{frame.frame1[0].roll1[10].rollTotal}}" readonly></input></li>
+									<li>Roll Two: <input type="text"  value="{{frame.frame1[1].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{frame.frame1[0].roll1[10].rollTotal+frame.frame1[0].roll2[10].rollTotal}}" readonly></input></li>
+								</ul>	 
+							</td>
+							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame2">
+								<ul>
+									<li>Roll One: <input type="text" value="{{frame.frame2[0].roll1[10].rollTotal}}" readonly></input></li>
+									<li>Roll Two: <input type="text"  value="{{frame.frame2[1].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{frame.frame2[0].roll1[10].rollTotal+frame.frame2[0].roll2[10].rollTotal}}" readonly></input></li>
+								</ul>	 
+							</td>								
+							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame3">
+								<ul>
+									<li>Roll One: <input type="text" value="{{frame.frame3[0].roll1[10].rollTotal}}" readonly></input></li>
+									<li>Roll Two: <input type="text"  value="{{frame.frame3[1].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{frame.frame3[0].roll1[10].rollTotal+frame.frame3[0].roll2[10].rollTotal}}" readonly></input></li>
+								</ul>	 
+							</td>								
+							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame4">
+								<ul>
+									<li>Roll One: <input type="text" value="{{frame.frame4[0].roll1[10].rollTotal}}" readonly></input></li>
+									<li>Roll Two: <input type="text"  value="{{frame.frame4[1].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{frame.frame4[0].roll1[10].rollTotal+frame.frame4[0].roll2[10].rollTotal}}" readonly></input></li>
+								</ul>	 
+							</td>								
+							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame5">
+								<ul>
+									<li>Roll One: <input type="text" value="{{frame.frame5[0].roll1[10].rollTotal}}" readonly></input></li>
+									<li>Roll Two: <input type="text"  value="{{frame.frame5[1].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{frame.frame5[0].roll1[10].rollTotal+frame.frame5[0].roll2[10].rollTotal}}" readonly></input></li>
+								</ul>	 
+							</td>								
+							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame6">
+								<ul>
+									<li>Roll One: <input type="text" value="{{frame.frame6[0].roll1[10].rollTotal}}" readonly></input></li>
+									<li>Roll Two: <input type="text"  value="{{frame.frame6[1].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{frame.frame6[0].roll1[10].rollTotal+frame.frame6[0].roll2[10].rollTotal}}" readonly></input></li>
+								</ul>	 
+							</td>								
+							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame7">
+								<ul>
+									<li>Roll One: <input type="text" value="{{frame.frame7[0].roll1[10].rollTotal}}" readonly></input></li>
+									<li>Roll Two: <input type="text"  value="{{frame.frame7[1].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{frame.frame7[0].roll1[10].rollTotal+frame.frame7[0].roll2[10].rollTotal}}" readonly></input></li>
+								</ul>	 
+							</td>								
+							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame8">
+								<ul>
+									<li>Roll One: <input type="text" value="{{frame.frame8[0].roll1[10].rollTotal}}" readonly></input></li>
+									<li>Roll Two: <input type="text"  value="{{frame.frame8[1].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{frame.frame8[0].roll1[10].rollTotal+frame.frame8[0].roll2[10].rollTotal}}" readonly></input></li>
+								</ul>	 
+							</td>								
+							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame9">
+								<ul>
+									<li>Roll One: <input type="text" value="{{frame.frame9[0].roll1[10].rollTotal}}" readonly></input></li>
+									<li>Roll Two: <input type="text"  value="{{frame.frame9[1].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{frame.frame9[0].roll1[10].rollTotal+frame.frame9[0].roll2[10].rollTotal}}" readonly></input></li>
+								</ul>	 
+							</td>								
+							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame10">
+								<ul>
+									<li>Roll One: <input type="text" value="{{frame.frame10[0].roll1[10].rollTotal}}" readonly></input></li>
+									<li>Roll Two: <input type="text"  value="{{frame.frame10[1].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{frame.frame10[0].roll1[10].rollTotal+frame.frame10[0].roll2[10].rollTotal}}" readonly></input></li>
+								</ul>	 
 							</td>			
 
 							<td id="col12" class="scoreCol bgColorLightest bgColorLightest borderDarkest">
-								{{player.totalScore}}
+								<p>{{player.finalscore}}</p>
 							</td>
 						</tr>
 
@@ -66,13 +140,9 @@ function startGame(){
 				</section>	
 
 			</body>
-			 <script type="text/javascript" src="script.js"></script>
-			 <script type="text/json" src="frames.json"></script>
-			 <script type="text/json" src="players.js"></script>
+			<script type="text/javascript" src="angular/app.js"></script>
 
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-			<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
 			<script>
 			$( document ).ready(function(){
 				
@@ -102,14 +172,81 @@ function startGame(){
 
 				$("#start").click(
 				function(){
+					startGame();
 					prompt("How many players?");
 				});					
 				$("#reset").click(
 				function(){
 					confirm("Reset Game?");
+				});		
+				var rollCount=0;			
+				$("#bowl").click(
+				function(){
+					if(gameStarted()){
+						roll();
+						rollCount = rollCount+1;
+					}else{
+						alert("You Have not started the game yet!");
+					}
 				});			
 
 			});
+			var gameStatus = false;
+			function gameStarted(){
+				return gameStatus;
+			};
+			function startGame(){
+				gameStatus=true;
+			};
+
+			function roll(){
+				var pin1 = Math.floor(Math.random()*2);
+				var pin2 = Math.floor(Math.random()*2);
+				var pin3 = Math.floor(Math.random()*2);
+				var pin4 = Math.floor(Math.random()*2);
+				var pin5 = Math.floor(Math.random()*2);
+				var pin6 = Math.floor(Math.random()*2);
+				var pin7 = Math.floor(Math.random()*2);
+				var pin8 = Math.floor(Math.random()*2);
+				var pin9 = Math.floor(Math.random()*2);
+				var pin10 = Math.floor(Math.random()*2);
+
+				var pinCount = pin1+pin2+pin3+pin4+pin5+pin6+pin7+pin8+pin9+pin10;
+				var pinsUp = new Array();
+				var pinsDown = new Array();
+				for(i = 1;i<11;i++){
+					if("pin"+i === 0){
+						console.log(pinsUp.push("pin"+i));
+					}
+					else{
+						console.log(pinsDown.push("pin"+i));
+					}
+				}
+				console.log(pin1);
+				console.log(pin2);
+				console.log(pin3);
+				console.log(pin4);
+				console.log(pin5);
+				console.log(pin6);
+				console.log(pin7);
+				console.log(pin8);
+				console.log(pin9);
+				console.log(pin10);
+				var pin;
+				var pin2;
+				var pinsRemaining = "";
+				var pinsNotRemaining = "";
+				for(pin in pinsUp){
+					if(pin)
+					pinsRemaining+=pinsUp[pin];
+				};
+				for(pin2 in pinsDown){
+					pinsNotRemaining+=pinsDown[pin2];
+				};
+				console.log(pinCount);
+				console.log(pinsRemaining);
+				console.log(pinsNotRemaining);
+			}
 
 			</script>
 			</html>
