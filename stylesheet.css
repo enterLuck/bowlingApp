@@ -1,0 +1,129 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+body{
+	background-image: url(img/bowlinglane.png);
+	background-color: #fff;
+}
+aside{
+	float:left;
+	width:20%;
+}
+.roboto{
+	font-family: "Roboto";
+}
+#main{
+	float:left;
+	width:80%;
+}
+ul li{
+	list-style-type: none;
+} 
+.colorDarkest{
+	color: #2F1500;
+	color: rgb(47,21,0);
+} 
+.bgColorDarkest{
+	background-color: #2F1500;
+	background-color: rgb(47,21,0);
+} 
+.colorMediumLight{
+	color: #E7A873;
+	color: rgb(231,168,115);
+}
+.bgColorMediumLight{
+	background-color: #E7A873;
+	background-color: rgb(231,168,115);
+} 
+.colorMedium{
+	color: #AA6C39;
+	color: rgb(170,108,57)
+}
+.bgColorMedium{
+	background-color: #AA6C39;
+	background-color: rgb(170,108,57)
+} 
+.colorMediumHeavy{
+	color: #6D3B13;
+	color: rgb(109,59,19) 
+}
+.bgColorMediumHeavy{
+	background-color: #6D3B13;
+	background-color: rgb(109,59,19) 
+} 
+.colorLightest{
+	color: #FFCFA8;
+	color: rgb(255,207,168);
+}
+.bgColorLightest{
+	background-color: #FFCFA8;
+	background-color: rgb(255,207,168);
+}
+.borderDarkest{
+	border:solid;
+	border-size:medium;
+	border-color: #2F1500;
+	border-color: rgb(47,21,0);
+}
+.bgColorLtGreen{
+	background-color: #91C486;
+	background-color: rgb(145,196,134);
+}
+.bgColorLtBlue{
+	background-color: #697590;
+	background-color: rgb(105,117,144);
+}
+.colorLtGreen{
+	color: #91C486;
+	color: rgb(145,196,134);
+}
+.colorLtYellow{
+	color: #FFF378;
+	color: rgb(255,243,120);
+}
+.font22{
+	font-size: 22px;
+}
+#start{
+	background-image:url(img/bowling-ball-start.png);
+}
+#reset{
+	background-image:url(img/bowling-ball-reset.png);
+}
+#bowl{
+	background-image:url(img/bowling-ball-bowl.png);
+}
+#start:hover{
+	background-image:url(img/bowling-ball-start-hover.png);
+}
+#reset:hover{
+	background-image:url(img/bowling-ball-reset-hover.png);
+}
+#bowl:hover{
+	background-image:url(img/bowling-ball-bowl-hover.png);
+}
+#scoreboard{
+	margin-top:5%;
+	width:100%;
+}
+#scoreCol{
+	width:5%;
+	height:100%;
+	padding:0%;
+}
+#col0,#col12{
+	width:10%;
+	height:75px;
+}
+#col1,#col2,#col3,#col4,#col5,#col6,#col7,#col8,#col9,#col10{
+	width:8%;
+	height:100px;
+}
+.white{
+	color:#fff;
+	color:rgb(255,255,255);
+}
+/*.center{
+	margin-left:;
+}*/
+
+
+

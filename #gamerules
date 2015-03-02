@@ -1,0 +1,24 @@
+generate ball generator
+
+# 10 frames
+# If the first ball is not a strike then roll a second
+# If the second ball hits rest of pins then its a spare
+# After first ball subtract pins from 10
+# After second ball subtract pins from 10
+# If first ball gets no pins its a gutter ball
+# If 10th frame is strike or spare than roll third ball is available otherwise only 2 or 3rd is zero
+# If it is not a spare add previous score to the pins down
+# If it is a spare add the next ball to the previous score plus 10 for the completed frame
+# If it is a strike add the next ball to the previous score plus 10 for the completed frame
+# If three strikes in a row than a turkey
+
+num of players
+total score
+total frame
+compare player total scores
+declare winner
+alert strike
+alert spare
+alert turkey
+
+
