@@ -22,7 +22,8 @@ function startGame(){
 </script>			
 		</head>
 		<body>
-			<h1 class="white center roboto">Bowling Application by Tim Brown</h1>
+			<h1 class="white roboto">Bowler World 2015!</h1>
+			<h3 class="white roboto">by Tim Brown </h1>
 			<aside>
 				<ul>
 					<li><img src="img/bowling-ball-start.png" id="start" /></li>
@@ -42,31 +43,36 @@ function startGame(){
 
 
 				
-						<tr ng-repeat-start="player in players">
+						<tr ng-repeat="player in players">
 							
 							<td id="col0" class="scoreCol bgColorLightest colorDarkest borderDarkest">
 								{{player.name}}
 							</td>
-							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="roll in rolls">
+							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frames">
 								<ul>
-									<li>Roll One: {{player.roll}}</li>
-									<li>Roll Two: {{player.roll}}</li>
-									<li>Score: {{player.score}}</li>
+									<li>Roll One: <input type="text" value="{{frame.firstRoll}}" readonly></input></li>
+									<li>Roll Two: <input type="text" value="{{frame.secondRoll}}" readonly></input></li>
+									<li>Pins Knocked Down: <input type="text" value="{{frame.knockedDown}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{frame.currentScore}}" readonly></input></li>
 								</ul>	
 							</td>			
 
-							<td id="col12" class="scoreCol bgColorLightest bgColorLightest borderDarkest"></td>
-						</tr ng-repeat-end>
+							<td id="col12" class="scoreCol bgColorLightest bgColorLightest borderDarkest">
+								{{player.totalScore}}
+							</td>
+						</tr>
 
 					</table>		
 				</section>	
 
 			</body>
 			 <script type="text/javascript" src="script.js"></script>
+			 <script type="text/json" src="frames.json"></script>
+			 <script type="text/json" src="players.js"></script>
 
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 			<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 			<script>
 			$( document ).ready(function(){
 				
@@ -93,8 +99,6 @@ function startGame(){
 				function(){
 					$("#bowl").attr("src","img/bowling-ball-bowl.png");
 				});
-
-			
 
 				$("#start").click(
 				function(){
