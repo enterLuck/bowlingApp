@@ -2,7 +2,7 @@
 
 
 
-
+function roll(){
 var pin1 = Math.floor(Math.random()*2);
 var pin2 = Math.floor(Math.random()*2);
 var pin3 = Math.floor(Math.random()*2);
@@ -49,7 +49,7 @@ for(pin2 in pinsDown){
 console.log(pinCount);
 console.log(pinsRemaining);
 console.log(pinsNotRemaining);
-
+}
 
 // var startPins = 10;
 // var currentPins = 0;

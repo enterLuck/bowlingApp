@@ -1,0 +1,20 @@
+bowlingApp.directive('ng-reset',function(){
+	return{
+		require:'^ngModel'
+	}
+})
+.directive('ng-bowl',function(){
+	return{
+		require:'^ngModel'
+	}
+})
+.directive('ng-currentScore',function(){
+	return{
+		require:'^ngModel'
+	}
+})
+.directive('ng-totalScore',function(){
+	return{
+
+	}
+});		

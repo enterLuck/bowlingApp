@@ -58,81 +58,84 @@
 						<tr ng-repeat="player in players">
 							
 							<td id="col0" class="scoreCol bgColorLightest colorDarkest borderDarkest">
-								<p>{{player.name}}</p>
+								<p ng-bind="player.name"></p>
+								<input class="test" ng-model="player.name"></input>
 							</td>
-							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame1">
+							<?php $numbersTo10 = array(1,2,3,4,5,6,7,8,9,10);foreach($numbersTo10 as $index=>$value){ ?>
+							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame<?php echo $value;?>">
 								<ul>
-									<li>Roll One: <input type="text" value="{{frame.frame1[0].roll1[10].rollTotal}}" readonly></input></li>
-									<li>Roll Two: <input type="text"  value="{{frame.frame1[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{frame.frame1[0].roll1[10].rollTotal+frame.frame1[0].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Roll One: <input type="text" value="{{frame.frame<?php echo $value;?>[0].roll1[10].rollTotal}}" readonly></input></li>
+									<li>Roll Two: <input type="text"  value="{{frame.frame<?php echo $value;?>[1].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{player.frame<?php echo $value;?>score}}" readonly></input></li>
 								</ul>	 
 							</td>
-							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame2">
+							<?php } ?>
+<!-- 							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame2">
 								<ul>
 									<li>Roll One: <input type="text" value="{{frame.frame2[0].roll1[10].rollTotal}}" readonly></input></li>
 									<li>Roll Two: <input type="text"  value="{{frame.frame2[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{frame.frame2[0].roll1[10].rollTotal+frame.frame2[0].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{player.frame2score}}" readonly></input></li>
 								</ul>	 
 							</td>								
 							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame3">
 								<ul>
 									<li>Roll One: <input type="text" value="{{frame.frame3[0].roll1[10].rollTotal}}" readonly></input></li>
 									<li>Roll Two: <input type="text"  value="{{frame.frame3[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{frame.frame3[0].roll1[10].rollTotal+frame.frame3[0].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{player.frame3score}}" readonly></input></li>
 								</ul>	 
 							</td>								
 							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame4">
 								<ul>
 									<li>Roll One: <input type="text" value="{{frame.frame4[0].roll1[10].rollTotal}}" readonly></input></li>
 									<li>Roll Two: <input type="text"  value="{{frame.frame4[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{frame.frame4[0].roll1[10].rollTotal+frame.frame4[0].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{player.frame4score}}" readonly></input></li>
 								</ul>	 
 							</td>								
 							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame5">
 								<ul>
 									<li>Roll One: <input type="text" value="{{frame.frame5[0].roll1[10].rollTotal}}" readonly></input></li>
 									<li>Roll Two: <input type="text"  value="{{frame.frame5[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{frame.frame5[0].roll1[10].rollTotal+frame.frame5[0].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{player.frame5score}}" readonly></input></li>
 								</ul>	 
 							</td>								
 							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame6">
 								<ul>
 									<li>Roll One: <input type="text" value="{{frame.frame6[0].roll1[10].rollTotal}}" readonly></input></li>
 									<li>Roll Two: <input type="text"  value="{{frame.frame6[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{frame.frame6[0].roll1[10].rollTotal+frame.frame6[0].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{player.frame6score}}" readonly></input></li>
 								</ul>	 
 							</td>								
 							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame7">
 								<ul>
 									<li>Roll One: <input type="text" value="{{frame.frame7[0].roll1[10].rollTotal}}" readonly></input></li>
 									<li>Roll Two: <input type="text"  value="{{frame.frame7[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{frame.frame7[0].roll1[10].rollTotal+frame.frame7[0].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{player.frame7score}}" readonly></input></li>
 								</ul>	 
 							</td>								
 							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame8">
 								<ul>
 									<li>Roll One: <input type="text" value="{{frame.frame8[0].roll1[10].rollTotal}}" readonly></input></li>
 									<li>Roll Two: <input type="text"  value="{{frame.frame8[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{frame.frame8[0].roll1[10].rollTotal+frame.frame8[0].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{player.frame8score}}" readonly></input></li>
 								</ul>	 
 							</td>								
 							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame9">
 								<ul>
 									<li>Roll One: <input type="text" value="{{frame.frame9[0].roll1[10].rollTotal}}" readonly></input></li>
 									<li>Roll Two: <input type="text"  value="{{frame.frame9[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{frame.frame9[0].roll1[10].rollTotal+frame.frame9[0].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{player.frame9score}}" readonly></input></li>
 								</ul>	 
 							</td>								
 							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame10">
 								<ul>
 									<li>Roll One: <input type="text" value="{{frame.frame10[0].roll1[10].rollTotal}}" readonly></input></li>
 									<li>Roll Two: <input type="text"  value="{{frame.frame10[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{frame.frame10[0].roll1[10].rollTotal+frame.frame10[0].roll2[10].rollTotal}}" readonly></input></li>
+									<li>Score: <input type="text" value="{{player.frame10score}}" readonly></input></li>
 								</ul>	 
-							</td>			
+							</td>	 -->		
 
 							<td id="col12" class="scoreCol bgColorLightest bgColorLightest borderDarkest">
-								<p>{{player.finalscore}}</p>
+								<p ng-totalScore>{{player.finalscore}}</p>
 							</td>
 						</tr>
 
@@ -141,6 +144,8 @@
 
 			</body>
 			<script type="text/javascript" src="angular/app.js"></script>
+			<script type="text/javascript" src="angular/controller.js"></script>
+			<script type="text/javascript" src="angular/directive.js"></script>
 
 
 			<script>
@@ -212,16 +217,6 @@
 				var pin10 = Math.floor(Math.random()*2);
 
 				var pinCount = pin1+pin2+pin3+pin4+pin5+pin6+pin7+pin8+pin9+pin10;
-				var pinsUp = new Array();
-				var pinsDown = new Array();
-				for(i = 1;i<11;i++){
-					if("pin"+i === 0){
-						console.log(pinsUp.push("pin"+i));
-					}
-					else{
-						console.log(pinsDown.push("pin"+i));
-					}
-				}
 				console.log(pin1);
 				console.log(pin2);
 				console.log(pin3);
@@ -232,20 +227,8 @@
 				console.log(pin8);
 				console.log(pin9);
 				console.log(pin10);
-				var pin;
-				var pin2;
-				var pinsRemaining = "";
-				var pinsNotRemaining = "";
-				for(pin in pinsUp){
-					if(pin)
-					pinsRemaining+=pinsUp[pin];
-				};
-				for(pin2 in pinsDown){
-					pinsNotRemaining+=pinsDown[pin2];
-				};
 				console.log(pinCount);
-				console.log(pinsRemaining);
-				console.log(pinsNotRemaining);
+
 			}
 
 			</script>
