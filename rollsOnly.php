@@ -12,7 +12,9 @@ var pins = {
 	pin7:0,
 	pin8:0,
 	pin9:0,
-	pin10:0
+	pin10:0,
+	pinCount:0,
+	pinScore:0
 };
 var fr = {};
 var fr = {
