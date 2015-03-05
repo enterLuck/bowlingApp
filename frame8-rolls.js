@@ -22,17 +22,17 @@ function frame8roll1(){
 	pins.pin8 = pin8;
 	pins.pin9 = pin9;
 	pins.pin10 = pin10;
-	console.log(pin1);
-	console.log(pin2);
-	console.log(pin3);
-	console.log(pin4);
-	console.log(pin5);
-	console.log(pin6);
-	console.log(pin7);
-	console.log(pin8);
-	console.log(pin9);
-	console.log(pin10);
-	console.log("pin cnt:"+pinCount);
+	// console.log(pin1);
+	// console.log(pin2);
+	// console.log(pin3);
+	// console.log(pin4);
+	// console.log(pin5);
+	// console.log(pin6);
+	// console.log(pin7);
+	// console.log(pin8);
+	// console.log(pin9);
+	// console.log(pin10);
+	console.log("frame 8 roll 1 :"+pinCount);
 	var pinsUp = 10-pinCount;
 	var roll1 = pinCount;
 	fr.frame8roll1 = roll1;
@@ -46,7 +46,6 @@ function frame8roll1(){
 	}else{
 		msg = "err";
 	}
-	console.log("fr8r1-"+fr.frame8roll1);
 	console.log(msg);
 	return msg;
 };
@@ -88,17 +87,17 @@ function frame8roll2(){
 		}
 
 		var pinCount = pin1+pin2+pin3+pin4+pin5+pin6+pin7+pin8+pin9+pin10;
-		console.log(pin1);
-		console.log(pin2);
-		console.log(pin3);
-		console.log(pin4);
-		console.log(pin5);
-		console.log(pin6);
-		console.log(pin7);
-		console.log(pin8);
-		console.log(pin9);
-		console.log(pin10);
-	console.log("pin cnt:"+pinCount);
+		// console.log(pin1);
+		// console.log(pin2);
+		// console.log(pin3);
+		// console.log(pin4);
+		// console.log(pin5);
+		// console.log(pin6);
+		// console.log(pin7);
+		// console.log(pin8);
+		// console.log(pin9);
+		// console.log(pin10);
+	console.log("frame 8 roll 2 :"+pinCount);
 	var roll2 = pinCount;
 	fr.frame8roll2 = roll2;
 	var rolls = parseInt(fr.frame8roll1)+parseInt(fr.frame8roll2);
@@ -114,7 +113,6 @@ function frame8roll2(){
 		msg = "err";
 	}
 	// console.log("fr8r1-"+fr.frame8roll1);
-	console.log("fr8r2-"+fr.frame8roll2);
 	console.log("Frame 8 Total"+fr.frame8total());
 	console.log(msg);
 	return msg;

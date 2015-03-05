@@ -69,70 +69,7 @@
 									<li>Score: <input type="text" value="{{player.frame<?php echo $value;?>score}}" readonly></input></li>
 								</ul>	 
 							</td>
-							<?php } ?>
-<!-- 							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame2">
-								<ul>
-									<li>Roll One: <input type="text" value="{{frame.frame2[0].roll1[10].rollTotal}}" readonly></input></li>
-									<li>Roll Two: <input type="text"  value="{{frame.frame2[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{player.frame2score}}" readonly></input></li>
-								</ul>	 
-							</td>								
-							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame3">
-								<ul>
-									<li>Roll One: <input type="text" value="{{frame.frame3[0].roll1[10].rollTotal}}" readonly></input></li>
-									<li>Roll Two: <input type="text"  value="{{frame.frame3[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{player.frame3score}}" readonly></input></li>
-								</ul>	 
-							</td>								
-							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame4">
-								<ul>
-									<li>Roll One: <input type="text" value="{{frame.frame4[0].roll1[10].rollTotal}}" readonly></input></li>
-									<li>Roll Two: <input type="text"  value="{{frame.frame4[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{player.frame4score}}" readonly></input></li>
-								</ul>	 
-							</td>								
-							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame5">
-								<ul>
-									<li>Roll One: <input type="text" value="{{frame.frame5[0].roll1[10].rollTotal}}" readonly></input></li>
-									<li>Roll Two: <input type="text"  value="{{frame.frame5[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{player.frame5score}}" readonly></input></li>
-								</ul>	 
-							</td>								
-							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame6">
-								<ul>
-									<li>Roll One: <input type="text" value="{{frame.frame6[0].roll1[10].rollTotal}}" readonly></input></li>
-									<li>Roll Two: <input type="text"  value="{{frame.frame6[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{player.frame6score}}" readonly></input></li>
-								</ul>	 
-							</td>								
-							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame7">
-								<ul>
-									<li>Roll One: <input type="text" value="{{frame.frame7[0].roll1[10].rollTotal}}" readonly></input></li>
-									<li>Roll Two: <input type="text"  value="{{frame.frame7[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{player.frame7score}}" readonly></input></li>
-								</ul>	 
-							</td>								
-							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame8">
-								<ul>
-									<li>Roll One: <input type="text" value="{{frame.frame8[0].roll1[10].rollTotal}}" readonly></input></li>
-									<li>Roll Two: <input type="text"  value="{{frame.frame8[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{player.frame8score}}" readonly></input></li>
-								</ul>	 
-							</td>								
-							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame9">
-								<ul>
-									<li>Roll One: <input type="text" value="{{frame.frame9[0].roll1[10].rollTotal}}" readonly></input></li>
-									<li>Roll Two: <input type="text"  value="{{frame.frame9[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{player.frame9score}}" readonly></input></li>
-								</ul>	 
-							</td>								
-							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame10">
-								<ul>
-									<li>Roll One: <input type="text" value="{{frame.frame10[0].roll1[10].rollTotal}}" readonly></input></li>
-									<li>Roll Two: <input type="text"  value="{{frame.frame10[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{player.frame10score}}" readonly></input></li>
-								</ul>	 
-							</td>	 -->		
+							<?php } ?>	
 
 							<td id="col12" class="scoreCol bgColorLightest bgColorLightest borderDarkest">
 								<p ng-totalScore>{{player.finalscore}}</p>
@@ -203,33 +140,6 @@
 			function startGame(){
 				gameStatus=true;
 			};
-
-			function roll(){
-				var pin1 = Math.floor(Math.random()*2);
-				var pin2 = Math.floor(Math.random()*2);
-				var pin3 = Math.floor(Math.random()*2);
-				var pin4 = Math.floor(Math.random()*2);
-				var pin5 = Math.floor(Math.random()*2);
-				var pin6 = Math.floor(Math.random()*2);
-				var pin7 = Math.floor(Math.random()*2);
-				var pin8 = Math.floor(Math.random()*2);
-				var pin9 = Math.floor(Math.random()*2);
-				var pin10 = Math.floor(Math.random()*2);
-
-				var pinCount = pin1+pin2+pin3+pin4+pin5+pin6+pin7+pin8+pin9+pin10;
-				console.log(pin1);
-				console.log(pin2);
-				console.log(pin3);
-				console.log(pin4);
-				console.log(pin5);
-				console.log(pin6);
-				console.log(pin7);
-				console.log(pin8);
-				console.log(pin9);
-				console.log(pin10);
-				console.log(pinCount);
-
-			}
 
 			</script>
 			</html>
