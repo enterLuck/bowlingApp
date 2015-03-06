@@ -24,6 +24,7 @@
 // 		prompt("What is the players name?");
 // 	}
 // };
+var names = [];
  </script>			
 		</head>
 		<body ng-controller="playerController">
@@ -31,17 +32,9 @@
 			<h3 class="white roboto">by Tim </h1>
 			<aside>
 				<ul>
-					<li><img src="img/bowling-ball-start.png" id="start" /></li>
+					<li><img src="img/bowling-ball-start.png" id="start" ng-click="" /></li>
 					<li><img src="img/bowling-ball-reset.png" id="reset" /></li>
 					<li><img src="img/bowling-ball-bowl.png" id="bowl" /></li>
-					<li><p>How many Players?</p>
-						<select onchange="">
-							  <option value="1">1</option>
-							  <option value="2">2</option>
-							  <option value="3">3</option>
-							  <option value="4" selected>4</option>
-						</select>
-					</li>
 				</ul>	
 				<div id="result"></div>
 			</aside>	
@@ -59,7 +52,7 @@
 							
 							<td id="col0" class="scoreCol bgColorLightest colorDarkest borderDarkest">
 								<p ng-bind="player.name"></p>
-								<input class="test" ng-model="player.name"></input>
+								<input ng-model="player.name"></input>
 							</td>
 							<?php $numbersTo10 = array(1,2,3,4,5,6,7,8,9,10);foreach($numbersTo10 as $index=>$value){ ?>
 							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame<?php echo $value;?>">
@@ -115,11 +108,22 @@
 				$("#start").click(
 				function(){
 					startGame();
-					prompt("How many players?");
+					var k = prompt("How many players?","Must be 1-4");
+
+					if(k){
+						for(i=0;i<k;i++){
+						   var firstname = prompt("Please enter the name of Player "+i);
+						   names.push(firstname);
+						}
+
+					}else{
+						alert("Game not started. Not a valid number of players. Please restart.");
+					}
 				});					
 				$("#reset").click(
 				function(){
 					confirm("Reset Game?");
+
 				});		
 				var rollCount=0;			
 				$("#bowl").click(
@@ -140,6 +144,13 @@
 			function startGame(){
 				gameStatus=true;
 			};
+			function playerRangeChecker(qty){
+				if(qty.length==1&&((qty*1==1)||(qty*1==2)||(qty*1==3)||(qty*1==4))){
+					return true;
+				}else{
+					return false;
+				}
+			}
 
 			</script>
 			</html>

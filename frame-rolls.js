@@ -810,3 +810,46 @@ function calcStrikeOnly(frameNum,rolls){
 		}
 	}
 };
+
+function calcTurkey(roll1,frameNum){
+ 	// 2 frames ago strike equals 30
+	var previousFrameNum = frameNum - 1;
+	var beforePreviousFrameNum = frameNum - 2;
+	if((fr["frame"+beforePreviousFrameNum+"strike"] == "X") && (fr["frame"+previousFrameNum+"strike"] == "X") && (roll1>9)){
+			fr["frame"+beforePreviousFrameNum+"storeTotal"] = 30;
+			console.log(fr["frame"+beforePreviousFrameNum+"storeTotal"]);
+	}
+	return "turkey";
+}
+function calcStrikeSpare(roll1,frameNum){
+	// 2 frames ago strike previous frame spare
+	var previousFrameNum = frameNum - 1;
+	var beforePreviousFrameNum = frameNum - 2;
+	if((fr["frame"+beforePreviousFrameNum+"strike"] == "X") && (fr["frame"+previousFrameNum+"spare"] == "/") && (roll1<10)){
+			fr["frame"+beforePreviousFrameNum+"storeTotal"] = 20 + roll1;
+			console.log("running:"+calcSpareOnly(roll1,frameNum));
+			console.log(fr["frame"+beforePreviousFrameNum+"storeTotal"]);
+			return fr["frame"+beforePreviousFrameNum+"storeTotal"];
+	}else{
+		return "nada";
+	}
+
+}
+function calcSpareStrike(frameNum,rolls){
+ 	// 3 frames ago spare 2 frames ago strike
+	var previousFrameNum = frameNum - 1;
+	var beforePreviousFrameNum = frameNum - 2;
+	if((fr["frame"+beforePreviousFrameNum+"spare"] == "/")&&(fr["frame"+previousFrameNum+"strike"] == "X")){
+		fr["frame"+beforePreviousFrameNum+"storeTotal"] = 20 + rolls;
+		console.log(fr["frame"+beforePreviousFrameNum+"storeTotal"]);
+		return fr["frame"+beforePreviousFrameNum+"storeTotal"];
+	}else{
+		return "nada";
+	}
+}
+
+
+
+
+
+

@@ -1,6 +1,5 @@
 bowlingApp.controller("playerController",function($scope) 
 {
-    	$scope.name  = "Tim";
     	$scope.players = [
 			{"name":"Player 1",
 			"frame1score":0,
@@ -14,7 +13,7 @@ bowlingApp.controller("playerController",function($scope)
 			"frame9score":0,
 			"frame10score":0,
 			"currentscore":0,
-			"finalscore":0},	
+			"finalscore":0},
 			{"name":"Player 2",
 			"frame1score":0,
 			"frame2score":0,
@@ -27,33 +26,7 @@ bowlingApp.controller("playerController",function($scope)
 			"frame9score":0,
 			"frame10score":0,
 			"currentscore":0,
-			"finalscore":0},	
-			{"name":"Player 3",
-			"frame1score":0,
-			"frame2score":0,
-			"frame3score":0,
-			"frame4score":0,
-			"frame5score":0,
-			"frame6score":0,
-			"frame7score":0,
-			"frame8score":0,
-			"frame9score":0,
-			"frame10score":0,
-			"currentscore":0,
-			"finalscore":0},	
-			{"name":"Player 4",
-			"frame1score":0,
-			"frame2score":0,
-			"frame3score":0,
-			"frame4score":0,
-			"frame5score":0,
-			"frame6score":0,
-			"frame7score":0,
-			"frame8score":0,
-			"frame9score":0,
-			"frame10score":0,
-			"currentscore":0,
-			"finalscore":0}
+			"finalscore":0}			
 		];
 		$scope.frame1 = [
 	{"frame1":[
