@@ -8,7 +8,9 @@ function calcSpareOnly(pinCount,frameNum){
 
 		fr["frame"+previousFrameNum+"storeTotal"] = parseInt(fr["frame"+previousFrameNum+"total"]()) + parseInt(pinCount);
 			console.log(fr["frame"+previousFrameNum+"storeTotal"]);
+			return fr["frame"+previousFrameNum+"storeTotal"];
 	}else{
 		console.log("No recalculation necessary!");
+		return "No recalculation necessary!";
 	}
 }

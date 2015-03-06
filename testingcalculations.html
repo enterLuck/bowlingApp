@@ -26,10 +26,10 @@ var fr = {
 		}
 		return total;
 	},	
-	frame3roll1:0,
-	frame3roll2:0,
+	frame3roll1:6,
+	frame3roll2:4,
 	frame3strike:"",
-	frame3spare:"",
+	frame3spare:"/",
 	frame3total:function(){
 		var total = parseInt(this.frame3roll1)+parseInt(this.frame3roll2);
 		if(parseInt(this.frame3roll1)>9){
@@ -47,9 +47,9 @@ var fr = {
 		var total = parseInt(this.frame4roll1)+parseInt(this.frame4roll2);
 		return total;
 	},	
-	frame5roll1:10,
-	frame5roll2:0,
-	frame5strike:"X",
+	frame5roll1:4,
+	frame5roll2:5,
+	frame5strike:"",
 	frame5spare:"",	
 	frame5total:function(){
 		var total = parseInt(this.frame5roll1)+parseInt(this.frame5roll2);
@@ -78,32 +78,26 @@ var fr = {
 	frame8spare:"",	
 	frame8total:function(){
 		var total = parseInt(this.frame8roll1)+parseInt(this.frame8roll2);
-		if(parseInt(this.frame8roll1)>9){
-			this.frame8strike="X";
-		}else if(total>9&&parseInt(this.frame8roll1)<10){
-			this.frame8spare="/";
-		}
 		return total;
 	}
 };
-var frameNum = 8;
-var pinCount = 6;
-function calcSpareOnly(pinCount,frameNum){
-	// 1 frame ago spare equals current pins plus 10
-	var previousFrameNum = frameNum - 1;
-	console.log(frameNum);
-	console.log(previousFrameNum);
-	if(fr["frame"+previousFrameNum+"spare"] =="/"){
-		console.log(parseInt(pinCount));
+var frameNum = 5;
+var rolls = 9;
 
-		fr["frame"+previousFrameNum+"storeTotal"] = parseInt(fr["frame"+previousFrameNum+"total"]()) + parseInt(pinCount);
-			console.log(fr["frame"+previousFrameNum+"storeTotal"]);
+function calcSpareStrike(frameNum,rolls){
+ 	// 3 frames ago spare 2 frames ago strike
+	var previousFrameNum = frameNum - 1;
+	var beforePreviousFrameNum = frameNum - 2;
+	if((fr["frame"+beforePreviousFrameNum+"spare"] == "/")&&(fr["frame"+previousFrameNum+"strike"] == "X")){
+		fr["frame"+beforePreviousFrameNum+"storeTotal"] = 20 + rolls;
+		console.log(fr["frame"+beforePreviousFrameNum+"storeTotal"]);
+		return fr["frame"+beforePreviousFrameNum+"storeTotal"];
 	}else{
-		console.log("No recalculation necessary!");
+		return "nada";
 	}
 }
-calcSpareOnly(pinCount,frameNum);
 
+console.log("final"+calcSpareStrike(frameNum,rolls));
 </script>
 
 <script src="frame-rolls.js"></script>
