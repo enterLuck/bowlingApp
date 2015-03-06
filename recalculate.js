@@ -16,7 +16,7 @@ function calcSpareOnly(pinCount,frameNum){
 	}
 }
 
-function calcStrikeOnly(rolls,frameNum){
+function calcStrikeOnly(frameNum,rolls){
 	// 1 frame ago spare equals current pins plus 10
 	var previousFrameNum = frameNum - 1;
 	if(fr["frame"+previousFrameNum+"strike"] == "X"){

@@ -1,7 +1,7 @@
 var pin1=pin2=pin3=pin4=pin5=pin6=pin7=pin8=pin9=pin10 = 0;
 var pinCount = pin1+pin2+pin3+pin4+pin5+pin6+pin7+pin8+pin9+pin10;
 
-function rollA(){	
+function rollA(frameNum){	
 	 pin1 = Math.floor(Math.random()*2);
 	 pin2 = Math.floor(Math.random()*2);
 	 pin3 = Math.floor(Math.random()*2);
@@ -34,6 +34,7 @@ function rollA(){
 	// console.log(pin8);
 	// console.log(pin9);
 	// console.log(pin10);
+	calcSpareOnly(pinCount,frameNum);
 }
 function rollB(){
  		pin1=pin2=pin3=pin4=pin5=pin6=pin7=pin8=pin9=pin10 = 0;
@@ -118,6 +119,7 @@ function frame1roll2(){
 	var roll2 = pinCount;
 	fr.frame1roll2 = roll2;
 	var rolls = parseInt(fr.frame1roll1)+parseInt(fr.frame1roll2);
+	calcStrikeOnly(frameNum,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -167,6 +169,7 @@ function frame2roll2(){
 	var roll2 = pinCount;
 	fr.frame2roll2 = roll2;
 	var rolls = parseInt(fr.frame2roll1)+parseInt(fr.frame2roll2);
+	calcStrikeOnly(frameNum,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -216,6 +219,7 @@ function frame3roll2(){
 	var roll2 = pinCount;
 	fr.frame3roll2 = roll2;
 	var rolls = parseInt(fr.frame3roll1)+parseInt(fr.frame3roll2);
+	calcStrikeOnly(frameNum,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -265,6 +269,7 @@ function frame4roll2(){
 	var roll2 = pinCount;
 	fr.frame4roll2 = roll2;
 	var rolls = parseInt(fr.frame4roll1)+parseInt(fr.frame4roll2);
+	calcStrikeOnly(frameNum,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -314,6 +319,7 @@ function frame5roll2(){
 	var roll2 = pinCount;
 	fr.frame5roll2 = roll2;
 	var rolls = parseInt(fr.frame5roll1)+parseInt(fr.frame5roll2);
+	calcStrikeOnly(frameNum,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -363,6 +369,7 @@ function frame6roll2(){
 	var roll2 = pinCount;
 	fr.frame6roll2 = roll2;
 	var rolls = parseInt(fr.frame6roll1)+parseInt(fr.frame6roll2);
+	calcStrikeOnly(frameNum,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -412,6 +419,7 @@ function frame7roll2(){
 	var roll2 = pinCount;
 	fr.frame7roll2 = roll2;
 	var rolls = parseInt(fr.frame7roll1)+parseInt(fr.frame7roll2);
+	calcStrikeOnly(frameNum,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -461,6 +469,7 @@ function frame8roll2(){
 	var roll2 = pinCount;
 	fr.frame8roll2 = roll2;
 	var rolls = parseInt(fr.frame8roll1)+parseInt(fr.frame8roll2);
+	calcStrikeOnly(frameNum,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -510,6 +519,7 @@ function frame9roll2(){
 	var roll2 = pinCount;
 	fr.frame9roll2 = roll2;
 	var rolls = parseInt(fr.frame9roll1)+parseInt(fr.frame9roll2);
+	calcStrikeOnly(frameNum,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -559,6 +569,7 @@ function frame10roll2(){
 	var roll2 = pinCount;
 	fr.frame10roll2 = roll2;
 	var rolls = parseInt(fr.frame10roll1)+parseInt(fr.frame10roll2);
+	calcStrikeOnly(frameNum,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(fr.frame10roll1 > 9 && fr.frame10roll2 > 9){
