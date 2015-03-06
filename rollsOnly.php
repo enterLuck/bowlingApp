@@ -22,13 +22,9 @@ var fr = {
 	frame1roll2:0,
 	frame1strike:"",
 	frame1spare:"",
+	frame1storeTotal:0,
 	frame1total:function(){
 		var total = parseInt(this.frame1roll1)+parseInt(this.frame1roll2);
-		if(parseInt(this.frame1roll1)>9){
-			this.frame1strike="X";
-		}else if(total>9&&parseInt(this.frame1roll1)<10){
-			this.frame1spare="/";
-		}
 		return total;
 	},	
 	frame2roll1:0,
@@ -137,11 +133,13 @@ var fr = {
 	},	
 	frame10roll1:0,
 	frame10roll2:0,
-	frame10strike:"",
+	frame10roll1strike:"",
 	frame10spare:"",	
+	frame10roll2strike:"",
 	frame10get3check:false,
-	frame10total:0,	
-	frame10roll3:0
+	frame10roll3strike:"",
+	frame10roll3:0,
+	frame10total:0	
 };
 function speedBowler(){
 	frame1roll1();
