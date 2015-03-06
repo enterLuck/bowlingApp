@@ -31,6 +31,7 @@ var fr = {
 	frame2roll2:0,
 	frame2strike:"",
 	frame2spare:"",
+	frame2storeTotal:0,
 	frame2total:function(){
 		var total = parseInt(this.frame2roll1)+parseInt(this.frame2roll2);
 		if(parseInt(this.frame2roll1)>9){
@@ -44,6 +45,7 @@ var fr = {
 	frame3roll2:0,
 	frame3strike:"",
 	frame3spare:"",
+	frame3storeTotal:0,
 	frame3total:function(){
 		var total = parseInt(this.frame3roll1)+parseInt(this.frame3roll2);
 		if(parseInt(this.frame3roll1)>9){
@@ -57,6 +59,7 @@ var fr = {
 	frame4roll2:0,
 	frame4strike:"",
 	frame4spare:"",	
+	frame4storeTotal:0,
 	frame4total:function(){
 		var total = parseInt(this.frame4roll1)+parseInt(this.frame4roll2);
 		if(parseInt(this.frame4roll1)>9){
@@ -70,6 +73,7 @@ var fr = {
 	frame5roll2:0,
 	frame5strike:"",
 	frame5spare:"",	
+	frame5storeTotal:0,
 	frame5total:function(){
 		var total = parseInt(this.frame5roll1)+parseInt(this.frame5roll2);
 		if(parseInt(this.frame5roll1)>9){
@@ -83,6 +87,7 @@ var fr = {
 	frame6roll2:0,
 	frame6strike:"",
 	frame6spare:"",	
+	frame6storeTotal:0,
 	frame6total:function(){
 		var total = parseInt(this.frame6roll1)+parseInt(this.frame6roll2);
 		if(parseInt(this.frame6roll1)>9){
@@ -96,6 +101,7 @@ var fr = {
 	frame7roll2:0,
 	frame7strike:"",
 	frame7spare:"",	
+	frame7storeTotal:0,
 	frame7total:function(){
 		var total = parseInt(this.frame7roll1)+parseInt(this.frame7roll2);
 		if(parseInt(this.frame7roll1)>9){
@@ -109,6 +115,7 @@ var fr = {
 	frame8roll2:0,	
 	frame8strike:"",
 	frame8spare:"",	
+	frame8storeTotal:0,
 	frame8total:function(){
 		var total = parseInt(this.frame8roll1)+parseInt(this.frame8roll2);
 		if(parseInt(this.frame8roll1)>9){
@@ -122,24 +129,24 @@ var fr = {
 	frame9roll2:0,
 	frame9strike:"",
 	frame9spare:"",	
+	frame9storeTotal:0,
 	frame9total:function(){
 		var total = parseInt(this.frame9roll1)+parseInt(this.frame9roll2);
-		if(parseInt(this.frame9roll1)>9){
-			this.frame9strike="X";
-		}else if(total>9&&parseInt(this.frame9roll1)<10){
-			this.frame9spare="/";
-		}
 		return total;
 	},	
 	frame10roll1:0,
 	frame10roll2:0,
+	frame10roll3:0,
 	frame10roll1strike:"",
 	frame10spare:"",	
 	frame10roll2strike:"",
 	frame10get3check:false,
 	frame10roll3strike:"",
-	frame10roll3:0,
-	frame10total:0	
+	frame10storeTotal:0,
+	frame10total:function(){
+		var total = parseInt(this.frame10roll1)+parseInt(this.frame10roll2)+parseInt(this.frame10roll3);
+		return total;
+	}		
 };
 function speedBowler(){
 	frame1roll1();

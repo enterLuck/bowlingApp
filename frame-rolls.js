@@ -90,7 +90,7 @@ function calculatePinsUpRoll2(rolls){
 
 //frame 1
 function frame1roll1(){
-	rollA();
+	rollA(1);
 	console.log("frame 1 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -119,7 +119,7 @@ function frame1roll2(){
 	var roll2 = pinCount;
 	fr.frame1roll2 = roll2;
 	var rolls = parseInt(fr.frame1roll1)+parseInt(fr.frame1roll2);
-	calcStrikeOnly(frameNum,rolls);
+	calcStrikeOnly(1,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -140,7 +140,7 @@ function frame1roll2(){
 };
 //frame 2
 function frame2roll1(){
-	rollA();
+	rollA(2);
 	console.log("frame 2 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -169,7 +169,7 @@ function frame2roll2(){
 	var roll2 = pinCount;
 	fr.frame2roll2 = roll2;
 	var rolls = parseInt(fr.frame2roll1)+parseInt(fr.frame2roll2);
-	calcStrikeOnly(frameNum,rolls);
+	calcStrikeOnly(2,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -190,7 +190,7 @@ function frame2roll2(){
 };
 //frame 3
 function frame3roll1(){
-	rollA();
+	rollA(3);
 	console.log("frame 3 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -219,7 +219,7 @@ function frame3roll2(){
 	var roll2 = pinCount;
 	fr.frame3roll2 = roll2;
 	var rolls = parseInt(fr.frame3roll1)+parseInt(fr.frame3roll2);
-	calcStrikeOnly(frameNum,rolls);
+	calcStrikeOnly(3,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -240,7 +240,7 @@ function frame3roll2(){
 };
 //frame 4
 function frame4roll1(){
-	rollA();
+	rollA(4);
 	console.log("frame 4 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -269,7 +269,7 @@ function frame4roll2(){
 	var roll2 = pinCount;
 	fr.frame4roll2 = roll2;
 	var rolls = parseInt(fr.frame4roll1)+parseInt(fr.frame4roll2);
-	calcStrikeOnly(frameNum,rolls);
+	calcStrikeOnly(4,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -290,7 +290,7 @@ function frame4roll2(){
 };
 //frame 5
 function frame5roll1(){
-	rollA();
+	rollA(5);
 	console.log("frame 5 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -319,7 +319,7 @@ function frame5roll2(){
 	var roll2 = pinCount;
 	fr.frame5roll2 = roll2;
 	var rolls = parseInt(fr.frame5roll1)+parseInt(fr.frame5roll2);
-	calcStrikeOnly(frameNum,rolls);
+	calcStrikeOnly(5,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -340,7 +340,7 @@ function frame5roll2(){
 };
 //frame 6
 function frame6roll1(){
-	rollA();
+	rollA(6);
 	console.log("frame 6 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -369,7 +369,7 @@ function frame6roll2(){
 	var roll2 = pinCount;
 	fr.frame6roll2 = roll2;
 	var rolls = parseInt(fr.frame6roll1)+parseInt(fr.frame6roll2);
-	calcStrikeOnly(frameNum,rolls);
+	calcStrikeOnly(6,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -390,7 +390,7 @@ function frame6roll2(){
 };
 //frame 7
 function frame7roll1(){
-	rollA();
+	rollA(7);
 	console.log("frame 7 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -419,7 +419,7 @@ function frame7roll2(){
 	var roll2 = pinCount;
 	fr.frame7roll2 = roll2;
 	var rolls = parseInt(fr.frame7roll1)+parseInt(fr.frame7roll2);
-	calcStrikeOnly(frameNum,rolls);
+	calcStrikeOnly(7,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -440,7 +440,7 @@ function frame7roll2(){
 };
 //frame 8
 function frame8roll1(){
-	rollA();
+	rollA(8);
 	console.log("frame 8 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -469,7 +469,7 @@ function frame8roll2(){
 	var roll2 = pinCount;
 	fr.frame8roll2 = roll2;
 	var rolls = parseInt(fr.frame8roll1)+parseInt(fr.frame8roll2);
-	calcStrikeOnly(frameNum,rolls);
+	calcStrikeOnly(8,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -490,7 +490,7 @@ function frame8roll2(){
 };
 //frame 9
 function frame9roll1(){
-	rollA();
+	rollA(9);
 	console.log("frame 9 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -519,7 +519,7 @@ function frame9roll2(){
 	var roll2 = pinCount;
 	fr.frame9roll2 = roll2;
 	var rolls = parseInt(fr.frame9roll1)+parseInt(fr.frame9roll2);
-	calcStrikeOnly(frameNum,rolls);
+	calcStrikeOnly(9,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(roll2<1){
@@ -540,7 +540,7 @@ function frame9roll2(){
 };
 //frame 10
 function frame10roll1(){
-	rollA();
+	rollA(10);
 	console.log("frame 10 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -569,7 +569,7 @@ function frame10roll2(){
 	var roll2 = pinCount;
 	fr.frame10roll2 = roll2;
 	var rolls = parseInt(fr.frame10roll1)+parseInt(fr.frame10roll2);
-	calcStrikeOnly(frameNum,rolls);
+	calcStrikeOnly(10,rolls);
 	var pinsUp = calculatePinsUpRoll2(rolls);
 	var msg = "";
 	if(fr.frame10roll1 > 9 && fr.frame10roll2 > 9){
@@ -585,25 +585,58 @@ function frame10roll2(){
 	}else{
 		msg = "err";
 	}
-	console.log("Frame Totals:"+fr.frame1total()+
-		"fr2"+fr.frame2total()+
-		"fr3"+fr.frame3total()+
-		"fr4"+fr.frame4total()+
-		"fr5"+fr.frame5total()+
-		"fr6"+fr.frame6total()+
-		"fr7"+fr.frame7total()+
-		"fr8"+fr.frame8total()+
-		"fr9"+fr.frame9total());
-	var pinscore = parseInt(fr.frame1total())+
-	parseInt(fr.frame2total())+
-	parseInt(fr.frame3total())+
-	parseInt(fr.frame4total())+
-	parseInt(fr.frame5total())+
-	parseInt(fr.frame6total())+
-	parseInt(fr.frame7total())+
-	parseInt(fr.frame8total())+
-	parseInt(fr.frame9total());
-	console.log("Actual Pins Down: "+pinscore);
+	var nmb = 0;
+	var tot = [];
+	var temp1 = 0;
+	var temp2 = 0;
+
+	for(i=1;i<11;i++){
+		temp1 = parseInt(fr["frame"+i+"storeTotal"]);
+		temp2 = parseInt(fr["frame"+i+"total"]());
+		console.log("temp1:"+i+" " +temp1);
+		console.log("temp2:"+i+" " +temp2);
+		if(temp1!=0){
+			tot.push(temp1);
+		}else{
+			tot.push(temp2);
+		}
+	}
+	console.log("FRAME TOTALS");
+	console.log("fr1"+": "+ tot[0]);
+	console.log("fr2"+": "+ tot[1]);
+	console.log("fr3"+": "+ tot[2]);
+	console.log("fr4"+": "+ tot[3]);
+	console.log("fr5"+": "+ tot[4]);
+	console.log("fr6"+": "+ tot[5]);
+	console.log("fr7"+": "+ tot[6]);
+	console.log("fr8"+": "+ tot[7]);
+	console.log("fr9"+": "+ tot[8]);
+	console.log("fr10"+": "+ tot[9]);
+
+
+	var finalAggregate = parseInt(tot[0]) + 
+	parseInt(tot[1]) + 
+	parseInt(tot[2]) + 
+	parseInt(tot[3]) + 
+	parseInt(tot[4]) + 
+	parseInt(tot[5]) + 
+	parseInt(tot[6]) + 
+	parseInt(tot[7]) + 
+	parseInt(tot[8]) + 
+	parseInt(tot[9]);
+	// var pinscore = parseInt(fr.frame1total())+
+	// parseInt(fr.frame2total())+
+	// parseInt(fr.frame3total())+
+	// parseInt(fr.frame4total())+
+	// parseInt(fr.frame5total())+
+	// parseInt(fr.frame6total())+
+	// parseInt(fr.frame7total())+
+	// parseInt(fr.frame8total())+
+	// parseInt(fr.frame9total())+
+	// parseInt(fr.frame10total());
+	// console.log("Actual Pins Down: "+pinscore);
+	
+	console.log("Actual Score: "+ finalAggregate);
 
 	console.log(msg);
 	return msg;
@@ -689,29 +722,54 @@ function frame10roll3(){
 	}
 	console.log("fr10r1-"+fr.frame10roll1);
 	console.log("fr10r2-"+fr.frame10roll2);
-	console.log("Frame Totals:"+"fr1"+fr.frame1total()+
-		"fr2"+fr.frame2total()+
-		"fr3"+fr.frame3total()+
-		"fr4"+fr.frame4total()+
-		"fr5"+fr.frame5total()+
-		"fr6"+fr.frame6total()+
-		"fr7"+fr.frame7total()+
-		"fr8"+fr.frame8total()+
-		"fr9"+fr.frame9total()+
-		"fr10"+fr.frame10total());
-	var pinscore = parseInt(fr.frame1total())+
-	parseInt(fr.frame2total())+
-	parseInt(fr.frame3total())+
-	parseInt(fr.frame4total())+
-	parseInt(fr.frame5total())+
-	parseInt(fr.frame6total())+
-	parseInt(fr.frame7total())+
-	parseInt(fr.frame8total())+
-	parseInt(fr.frame9total())+
-	parseInt(fr.frame10total());
-	console.log("Actual Pins Down: "+pinscore);
+	var nmb = 0;
+	var tot = [];
+	var temp1 = 0;
+	var temp2 = 0;
+	for(i=1;i<11;i++){
+		temp1 = parseInt(fr["frame"+i+"storeTotal"]);
+		temp2 = parseInt(fr["frame"+i+"total"]());
+		if(temp1>0){
+			tot.push(temp1);
+		}else{
+			tot.push(temp2);
+		}
+	}
+	console.log("FRAME TOTALS");
+	console.log("fr1"+": "+ tot[0]);
+	console.log("fr2"+": "+ tot[1]);
+	console.log("fr3"+": "+ tot[2]);
+	console.log("fr4"+": "+ tot[3]);
+	console.log("fr5"+": "+ tot[4]);
+	console.log("fr6"+": "+ tot[5]);
+	console.log("fr7"+": "+ tot[6]);
+	console.log("fr8"+": "+ tot[7]);
+	console.log("fr9"+": "+ tot[8]);
+	console.log("fr10"+": "+ tot[9]);
+
+	var finalAggregate = parseInt(tot[0]) + 
+	parseInt(tot[1]) + 
+	parseInt(tot[2]) + 
+	parseInt(tot[3]) + 
+	parseInt(tot[4]) + 
+	parseInt(tot[5]) + 
+	parseInt(tot[6]) + 
+	parseInt(tot[7]) + 
+	parseInt(tot[8]) + 
+	parseInt(tot[9]);
+	// var pinscore = parseInt(fr.frame1total())+
+	// parseInt(fr.frame2total())+
+	// parseInt(fr.frame3total())+
+	// parseInt(fr.frame4total())+
+	// parseInt(fr.frame5total())+
+	// parseInt(fr.frame6total())+
+	// parseInt(fr.frame7total())+
+	// parseInt(fr.frame8total())+
+	// parseInt(fr.frame9total())+
+	// parseInt(fr.frame10total());
+	// console.log("Actual Pins Down: "+pinscore);
 	
-	console.log("Actual Score: ");
+	console.log("Actual Score: "+ finalAggregate);
 
 
 	console.log(msg);
@@ -720,5 +778,35 @@ function frame10roll3(){
 		msg="Sorry you did not get a spare or strike so no third roll";
 		console.log(msg);
 		return msg;
+	}
+};
+
+function calcSpareOnly(pinCount,frameNum){
+	// 1 frame ago spare equals current pins plus 10
+	var previousFrameNum = frameNum - 1;
+	console.log(frameNum);
+	console.log(previousFrameNum);
+	if(fr["frame"+previousFrameNum+"spare"] =="/"){
+		console.log(parseInt(pinCount));
+
+		fr["frame"+previousFrameNum+"storeTotal"] = parseInt(fr["frame"+previousFrameNum+"total"]()) + parseInt(pinCount);
+			console.log(fr["frame"+previousFrameNum+"storeTotal"]);
+			return fr["frame"+previousFrameNum+"storeTotal"];
+	}else{
+		console.log("No recalculation necessary!");
+		return "No recalculation necessary!";
+	}
+};
+
+function calcStrikeOnly(frameNum,rolls){
+	// 1 frame ago spare equals current pins plus 10
+	var previousFrameNum = frameNum - 1;
+	if(fr["frame"+previousFrameNum+"strike"] == "X"){
+		if(fr["frame"+frameNum+"strike"] == "X"){
+			console.log("do nothing");
+		}else{
+			fr["frame"+previousFrameNum+"storeTotal"] = parseInt(fr["frame"+previousFrameNum+"total"]()) + parseInt(rolls);
+			console.log(fr["frame"+previousFrameNum+"storeTotal"]);
+		}
 	}
 };
