@@ -30,7 +30,15 @@
 						<!-- This row holds titles of the columns as follows: Name,Frame1......Frame10,Total -->
 
 						<!-- Scoreboard Title on separate page for code readability -->
-						<?php include_once("title-column.php");?>
+						<tr>
+							<td id="col0" class="scoreCol bgColorLightest colorDarkest borderDarkest">
+								<p>Players</p>
+							</td>
+							<?php for($i=1;$i<11;$i++){ ?>
+							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest">Frame <?php echo $i; ?></td>										
+							<?php } ?>
+							<td id="col12" class="scoreCol bgColorLightest bgColorLightest borderDarkest">Total</td>
+						</tr>
 
 
 				
@@ -40,15 +48,15 @@
 								<p ng-bind="player.name"></p>
 								<input ng-model="player.name"></input>
 							</td>
-							<?php $numbersTo10 = array(1,2,3,4,5,6,7,8,9,10);foreach($numbersTo10 as $index=>$value){ ?>
-							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest" ng-repeat="frame in frame<?php echo $value;?>">
-								<ul>
-									<li>Roll One: <input type="text" value="{{frame.frame<?php echo $value;?>[0].roll1[10].rollTotal}}" readonly></input></li>
-									<li>Roll Two: <input type="text"  value="{{frame.frame<?php echo $value;?>[1].roll2[10].rollTotal}}" readonly></input></li>
-									<li>Score: <input type="text" value="{{player.frame<?php echo $value;?>score}}" readonly></input></li>
+							<?php for($i=1;$i<11;$i++){ ?>
+							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest">
+								<ul style="width:80px;">
+									<li>Roll One: {{player.frames[3].rolls[0].total}}</li>
+									<li>Roll Two: {{player.frames[3].rolls[0].total}}</li>
+									<li>Score: {{player.frames[3].rolls[0].total+player.frames[3].rolls[1].total}}</li>
 								</ul>	 
 							</td>
-							<?php } ?>	
+							<?php } ?>
 
 							<td id="col12" class="scoreCol bgColorLightest bgColorLightest borderDarkest">
 								<p ng-totalScore>{{player.finalscore}}</p>
@@ -98,21 +106,25 @@
 					console.log(k);
 					console.log(playerRangeChecker(k));
 					if(playerRangeChecker(k)){
-						for(i=0;i<k;i++){
-						   var c = i+1;
-						   var firstname = prompt("Please enter the name of Player "+c);
-						   	console.log(firstname);
-						   console.log(addAplayer(firstname,c));
-						}
-
-					}else{
+						//    var playerArr = [];
+						// for(i=0;i<k;i++){
+						//    var c = i+1;
+						var msg = "Rules of the game. \nEach player will have 2 rolls to knock down 10 pins. The 2 rolls make up a frame. There are 10 frames in the game. In the final frame, Frame 10, a bonus third roll will be rewarded to a bowler who gets either a strike or spare. A strike is when a bowler knocks down all 10 pins in their first roll for that frame. A spare is when a bowler did not roll a strike on their first roll but knock down the rest of the pins on their second roll. Any left over pins standing at the end of the frame do not count toward your point. Points are awarded for each pin knocked down. But a strike and spare are special. A strike gets 10 points for knocking all the pins and adds the pins knocked down from their next 2 rolls to that frame. A spare gets the same 10 points and their next roll counted to the score for that frame. After each frame the next player takes their turn for that frame. If a bowler rolls a strike they do not take their second roll. He or she has completed that frame with the exception of frame 10. In frame 10 if a bowler gets a strike on their first roll the pins are reset and the same bowler rolls again. If the bowler gets a spare or another strike on frame 10 the pins are again reset and same bowler rolls again. \n\nAfter all scores are tallied the player with the highest score wins! \n\nPlease enter each player's name in the fields provided and press 'Bowl' to roll your turn.Once the game has completed feel free to restart or simply hit reset.And most importantly Remember to be safe and HAVE FUN!"
+						   confirm(msg);
+						   // var firstname = prompt("Please enter the name of Player ");
+						   // playerArr.push(firstname);	
+						   // console.log(firstname);
+						   // console.log(addAplayer(playerArr));
+						}else{
 						alert("Game not started. Not a valid number of players. Please restart.");
 					}
 				});					
 				$("#reset").click(
 				function(){
 					var bool = confirm("Reset Game?");
-
+					if(bool){
+						location.reload(1);
+					}
 				});		
 				var rollCount=0;			
 				$("#bowl").click(
@@ -140,14 +152,13 @@
 					return false;
 				}
 			}
-			var playerArray=[];
-			function addAplayer(name,num){
-				playerArray.push(num+name);
-				for (player in playerArray){
-					console.log(player);
-				}
-				return playerArray.length;
-			}
+			// function addAplayer(playerArray){
+			// 	for (b=0;b<playerArray.length;b++){
+			// 		$("#updateMe").val(playerArray[b]);
+			// 		// console.log(player);
+			// 	}
+			// 	return ;
+			// }
 
 			</script>
 			</html>

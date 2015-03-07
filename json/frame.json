@@ -1,27 +1,21 @@
 {
-	"number":0,
-	"rolls":[],
+	"number":1,
+	"rolls":[
+		{
+			"number":1,
+			"pins":[{"pin1":0},{"pin2":0},{"pin3":0},{"pin4":0},{"pin5":0},{"pin6":0},{"pin7":0},{"pin8":0},{"pin9":0},{"pin10":0}],
+			"total":0
+		},
+		{
+			"number":2,
+			"pins":[{"pin1":0},{"pin2":0},{"pin3":0},{"pin4":0},{"pin5":0},{"pin6":0},{"pin7":0},{"pin8":0},{"pin9":0},{"pin10":0}],
+			"total":0
+		}
+	],
 	"strike":false,
 	"spare":false,
-	"recalculated":0,
 	"total":0
 }	
-
-{
-	"number":1,
-	"pins":[{"pin1":0},{"pin2":0},{"pin3":0},{"pin4":0},{"pin5":0},{"pin6":0},{"pin7":0},{"pin8":0},{"pin9":0},{"pin10":0}],
-	"total":0
-}
-{
-	"number":2,
-	"pins":[{"pin1":0},{"pin2":0},{"pin3":0},{"pin4":0},{"pin5":0},{"pin6":0},{"pin7":0},{"pin8":0},{"pin9":0},{"pin10":0}],
-	"total":0
-}
-{
-	"number":3,
-	"pins":[{"pin1":0},{"pin2":0},{"pin3":0},{"pin4":0},{"pin5":0},{"pin6":0},{"pin7":0},{"pin8":0},{"pin9":0},{"pin10":0}],
-	"total":0
-}
 {
 	"frame1roll1":0,
 	"frame1roll2":0,
