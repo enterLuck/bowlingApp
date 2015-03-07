@@ -34,11 +34,6 @@ var fr = {
 	frame2storeTotal:0,
 	frame2total:function(){
 		var total = parseInt(this.frame2roll1)+parseInt(this.frame2roll2);
-		if(parseInt(this.frame2roll1)>9){
-			this.frame2strike="X";
-		}else if(total>9&&parseInt(this.frame2roll1)<10){
-			this.frame2spare="/";
-		}
 		return total;
 	},	
 	frame3roll1:0,
@@ -48,11 +43,6 @@ var fr = {
 	frame3storeTotal:0,
 	frame3total:function(){
 		var total = parseInt(this.frame3roll1)+parseInt(this.frame3roll2);
-		if(parseInt(this.frame3roll1)>9){
-			this.frame3strike="X";
-		}else if(total>9&&parseInt(this.frame3roll1)<10){
-			this.frame3spare="/";
-		}
 		return total;
 	},	
 	frame4roll1:0,
@@ -90,11 +80,6 @@ var fr = {
 	frame6storeTotal:0,
 	frame6total:function(){
 		var total = parseInt(this.frame6roll1)+parseInt(this.frame6roll2);
-		if(parseInt(this.frame6roll1)>9){
-			this.frame6strike="X";
-		}else if(total>9&&parseInt(this.frame6roll1)<10){
-			this.frame6spare="/";
-		}
 		return total;
 	},	
 	frame7roll1:0,
@@ -104,11 +89,6 @@ var fr = {
 	frame7storeTotal:0,
 	frame7total:function(){
 		var total = parseInt(this.frame7roll1)+parseInt(this.frame7roll2);
-		if(parseInt(this.frame7roll1)>9){
-			this.frame7strike="X";
-		}else if(total>9&&parseInt(this.frame7roll1)<10){
-			this.frame7spare="/";
-		}
 		return total;
 	},	
 	frame8roll1:0,
@@ -118,11 +98,6 @@ var fr = {
 	frame8storeTotal:0,
 	frame8total:function(){
 		var total = parseInt(this.frame8roll1)+parseInt(this.frame8roll2);
-		if(parseInt(this.frame8roll1)>9){
-			this.frame8strike="X";
-		}else if(total>9&&parseInt(this.frame8roll1)<10){
-			this.frame8spare="/";
-		}
 		return total;
 	},	
 	frame9roll1:0,

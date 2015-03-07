@@ -90,6 +90,7 @@ function calculatePinsUpRoll2(rolls){
 
 //frame 1
 function frame1roll1(){
+	console.log("Yo got here");
 	rollA(1);
 	console.log("frame 1 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
