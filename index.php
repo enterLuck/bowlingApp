@@ -11,28 +11,14 @@
 
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-			 <!--<script type="text/json" src="frames.json"></script>
-			 <script type="text/json" src="players.json"></script>-->
-
- <script>
-// var numberOfplayers=4;
-// function startGame(){
-// 	numberOfplayers =prompt("How many Players");
-// 	console.log("here it is"+numberOfplayers);
-// 	for(i=0;i<numberOfplayers;i++){
-// 		console.log("got here");
-// 		prompt("What is the players name?");
-// 	}
-// };
-var names = [];
- </script>			
+			
 		</head>
 		<body ng-controller="playerController">
 			<h1 class="white roboto">Bowler World 2015!</h1>
 			<h3 class="white roboto">by Tim </h1>
 			<aside>
 				<ul>
-					<li><img src="img/bowling-ball-start.png" id="start" ng-click="" /></li>
+					<li><img src="img/bowling-ball-start.png" id="start" /></li>
 					<li><img src="img/bowling-ball-reset.png" id="reset" /></li>
 					<li><img src="img/bowling-ball-bowl.png" id="bowl" /></li>
 				</ul>	
@@ -108,12 +94,15 @@ var names = [];
 				$("#start").click(
 				function(){
 					startGame();
-					var k = prompt("How many players?","Must be 1-4");
-
-					if(k){
+					var k = prompt("How many players? Up to 4");
+					console.log(k);
+					console.log(playerRangeChecker(k));
+					if(playerRangeChecker(k)){
 						for(i=0;i<k;i++){
-						   var firstname = prompt("Please enter the name of Player "+i);
-						   names.push(firstname);
+						   var c = i+1;
+						   var firstname = prompt("Please enter the name of Player "+c);
+						   	console.log(firstname);
+						   console.log(addAplayer(firstname,c));
 						}
 
 					}else{
@@ -122,7 +111,7 @@ var names = [];
 				});					
 				$("#reset").click(
 				function(){
-					confirm("Reset Game?");
+					var bool = confirm("Reset Game?");
 
 				});		
 				var rollCount=0;			
@@ -150,6 +139,14 @@ var names = [];
 				}else{
 					return false;
 				}
+			}
+			var playerArray=[];
+			function addAplayer(name,num){
+				playerArray.push(num+name);
+				for (player in playerArray){
+					console.log(player);
+				}
+				return playerArray.length;
 			}
 
 			</script>

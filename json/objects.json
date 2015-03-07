@@ -1,0 +1,35 @@
+// Player Object
+var player1 = {
+	"name":"Player 1",
+	"frames":[],
+	"finalscore":0
+}
+var player2 = {
+	"name":"Player 2",
+	"frames":[],
+	"finalscore":0
+}
+var player3 = {
+	"name":"Player 3",
+	"frames":[],
+	"finalscore":0
+}
+var player4 = {
+	"name":"Player 4",
+	"frames":[],
+	"finalscore":0
+}
+
+// Frame Object
+var frame = {
+	"number":1,
+	"rolls":[]
+}	
+
+// Roll Object
+var roll = {
+	"number":1,
+	"pins":[],
+	"total":0
+}
+
