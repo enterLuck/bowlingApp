@@ -1,21 +1,21 @@
 // Player Object
 var player1 = {
-	"name":"Player 1",
+	"fname":"Player 1",
 	"frames":[],
 	"finalscore":0
 }
 var player2 = {
-	"name":"Player 2",
+	"fname":"Player 2",
 	"frames":[],
 	"finalscore":0
 }
 var player3 = {
-	"name":"Player 3",
+	"fname":"Player 3",
 	"frames":[],
 	"finalscore":0
 }
 var player4 = {
-	"name":"Player 4",
+	"fname":"Player 4",
 	"frames":[],
 	"finalscore":0
 }
