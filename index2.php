@@ -259,48 +259,50 @@ function speedBowler(){
 				$("#bowl").click(
 				function(){
 					if(gameStarted()){
-						wP = getActivePlayer();
-						        if(playerClickCount(wP,1)==1){
+			
+						wP = switchPlayer();
+						console.log("ggg"+wP);
+						        if(playerNumber(wP,1)==1){
 									console.log(frame1roll1());	
-								}else if(playerClickCount(wP,1)==2){
+								}else if(playerNumber(wP,1)==2){
 									console.log(frame1roll2());	
-								}else if(playerClickCount(wP,2)==3){
+								}else if(playerNumber(wP,2)==3){
 									console.log(frame2roll1());	
-								}else if(playerClickCount(wP,2)==4){
+								}else if(playerNumber(wP,2)==4){
 									console.log(frame2roll2());	
-								}else if(playerClickCount(wP,3)==5){
+								}else if(playerNumber(wP,3)==5){
 									console.log(frame3roll2());	
-								}else if(playerClickCount(wP,3)==6){
+								}else if(playerNumber(wP,3)==6){
 									console.log(frame3roll1());	
-								}else if(playerClickCount(wP,4)==7){
+								}else if(playerNumber(wP,4)==7){
 									console.log(frame4roll2());	
-								}else if(playerClickCount(wP,4)==8){
+								}else if(playerNumber(wP,4)==8){
 									console.log(frame4roll2());	
-								}else if(playerClickCount(wP,5)==9){
+								}else if(playerNumber(wP,5)==9){
 									console.log(frame5roll1());	
-								}else if(playerClickCount(wP,5)==10){
+								}else if(playerNumber(wP,5)==10){
 									console.log(frame5roll2());	
-								}else if(playerClickCount(wP,6)==11){
+								}else if(playerNumber(wP,6)==11){
 									console.log(frame6roll2());	
-								}else if(playerClickCount(wP,6)==12){
+								}else if(playerNumber(wP,6)==12){
 									console.log(frame6roll1());	
-								}else if(playerClickCount(wP,7)==13){
+								}else if(playerNumber(wP,7)==13){
 									console.log(frame7roll2());	
-								}else if(playerClickCount(wP,7)==14){
+								}else if(playerNumber(wP,7)==14){
 									console.log(frame7roll2());	
-								}else if(playerClickCount(wP,8)==15){
+								}else if(playerNumber(wP,8)==15){
 									console.log(frame8roll1());	
-								}else if(playerClickCount(wP,8)==16){
+								}else if(playerNumber(wP,8)==16){
 									console.log(frame8roll2());	
-								}else if(playerClickCount(wP,9)==17){
+								}else if(playerNumber(wP,9)==17){
 									console.log(frame9roll1());	
-								}else if(playerClickCount(wP,9)==18){
+								}else if(playerNumber(wP,9)==18){
 									console.log(frame9roll2());	
-								}else if(playerClickCount(wP,10)==19){
+								}else if(playerNumber(wP,10)==19){
 									console.log(frame10roll1());	
-								}else if(playerClickCount(wP,10)==20){
+								}else if(playerNumber(wP,10)==20){
 									console.log(frame10roll2());	
-								}else if(playerClickCount(wP,10)==21){ // && no strike spare this method does not exist yet
+								}else if(playerNumber(wP,10)==21){ // && no strike spare this method does not exist yet
 
 								}else{
 									console.log("no click count added. err");
@@ -319,80 +321,25 @@ function speedBowler(){
 			function startGame(){
 				gameStatus=true;
 			};
-			// function switchTurn(){
-			// 	var wT = 0;
-			// 	var modP = whatsClickCount()%2;
-			// 	console.log("and this"+whatsClickCount());
-			// 	return parseInt(modP);
-			// };
-			var totalClicks=0;
-			var p1=p2=p3=p4=1;
-			var flipSwitch = 0;
-			function setActivePlayer(){
-				var activePlayer = 0;
-				activePlayer=totalClicks%playersCheckedIn;
-				return activePlayer;
-			}
 
-			// function clickCount(){
-			// 	console.log("need to know this"+totl);
-			// 	var tmpy = totl;
-			// 	totl++;
-			// 	return tmpy;
-			// };
-			// function whatsClickCount(){
-			// 	return totl;
-			// }
-			function playerClickCount(wP,frN){
-				if(frN==10){
-					if(wP==1){
-						var sv = p1;
-						
-						return sv;
-					}
-					else if(wP==2){
-						var sv = p2;
-						
-						return sv;				
-					}	
-					else if(wP==3){
-						var sv = p3;
-						
-						return sv;				
-					}
-					else if(wP==4){	
-						var sv = p4;
-						
-						return sv;				
-					}
-					// if(strike or spare){
-					//var wP=totalClicks%3;
-					// }
+			var playerN = 1;
+			var keepTrack = 0;
+			var modulus = 0;
+			function switchPlayer(){
+				if(keepTrack<2){
+					keepTrack++;
 				}else{
-				if(wP==1){
-					var sv = p1;
-
-					p1++;
-					return sv;
+					keepTrack=0;
+					modulus = playerN%playersCheckedIn();
+					if(modulus==0){
+						playerN=0;
+					}
+					playerN++;
 				}
-				else if(wP==2){
-					var sv = p2;
-					p2++;
-					return sv;				
-				}	
-				else if(wP==3){
-					var sv = p3;
-					p3++;
-					return sv;				
-				}
-				else if(wP==4){	
-					var sv = p4;
-					p4++;
-					return sv;				
-				}else{
-					console.log(wP);
-				}
-				}	
+				return playerN;
+			};
+			function playerNumber(wP,frN){
+				
 			};	
 
 			var pCount = 0;
