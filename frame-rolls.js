@@ -92,6 +92,7 @@ function calculatePinsUpRoll2(rolls){
 function frame1roll1(){
 	console.log("Yo got here");
 	rollA(1);
+	$("#r1f10").text(pinCount);
 	console.log("frame 1 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -116,6 +117,7 @@ function frame1roll2(){
 		msg = "no second roll because you had a strike";
 	}else{
 		rollB();
+	$("#r2f10").text(pinCount);	
 	console.log("frame 1 roll 2 :"+pinCount);
 	var roll2 = pinCount;
 	fr.frame1roll2 = roll2;
@@ -142,6 +144,7 @@ function frame1roll2(){
 //frame 2
 function frame2roll1(){
 	rollA(2);
+	$("#r1f20").text(pinCount);
 	console.log("frame 2 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -166,6 +169,7 @@ function frame2roll2(){
 		msg = "no second roll because you had a strike";
 	}else{
 		 rollB();
+	$("#r2f20").text(pinCount); 
 	console.log("frame 2 roll 2 :"+pinCount);
 	var roll2 = pinCount;
 	fr.frame2roll2 = roll2;
@@ -192,6 +196,7 @@ function frame2roll2(){
 //frame 3
 function frame3roll1(){
 	rollA(3);
+	$("#r1f30").text(pinCount);
 	console.log("frame 3 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -216,6 +221,7 @@ function frame3roll2(){
 		msg = "no second roll because you had a strike";
 	}else{
 		rollB();
+	$("#r2f30").text(pinCount);	
 	console.log("frame 3 roll 2 :"+pinCount);
 	var roll2 = pinCount;
 	fr.frame3roll2 = roll2;
@@ -242,6 +248,7 @@ function frame3roll2(){
 //frame 4
 function frame4roll1(){
 	rollA(4);
+	$("#r1f40").text(pinCount);
 	console.log("frame 4 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -266,6 +273,7 @@ function frame4roll2(){
 		msg = "no second roll because you had a strike";
 	}else{
 		 rollB();
+	$("#r2f40").text(pinCount);	 
 	console.log("frame 4 roll 2 :"+pinCount);
 	var roll2 = pinCount;
 	fr.frame4roll2 = roll2;
@@ -292,6 +300,7 @@ function frame4roll2(){
 //frame 5
 function frame5roll1(){
 	rollA(5);
+	$("#r1f50").text(pinCount);
 	console.log("frame 5 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -316,6 +325,7 @@ function frame5roll2(){
 		msg = "no second roll because you had a strike";
 	}else{
 		rollB();
+	$("#r2f50").text(pinCount);	
 	console.log("frame 5 roll 2 :"+pinCount);
 	var roll2 = pinCount;
 	fr.frame5roll2 = roll2;
@@ -342,6 +352,7 @@ function frame5roll2(){
 //frame 6
 function frame6roll1(){
 	rollA(6);
+	$("#r1f60").text(pinCount);
 	console.log("frame 6 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -366,6 +377,7 @@ function frame6roll2(){
 		msg = "no second roll because you had a strike";
 	}else{
 		rollB();
+	$("#r2f60").text(pinCount);		
 	console.log("frame 6 roll 2 :"+pinCount);
 	var roll2 = pinCount;
 	fr.frame6roll2 = roll2;
@@ -416,6 +428,7 @@ function frame7roll2(){
 		msg = "no second roll because you had a strike";
 	}else{
 		rollB();
+	$("#r2f70").text(pinCount);	
 	console.log("frame 7 roll 2 :"+pinCount);
 	var roll2 = pinCount;
 	fr.frame7roll2 = roll2;
@@ -442,6 +455,7 @@ function frame7roll2(){
 //frame 8
 function frame8roll1(){
 	rollA(8);
+	$("#r1f80").text(pinCount);
 	console.log("frame 8 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -466,6 +480,7 @@ function frame8roll2(){
 		msg = "no second roll because you had a strike";
 	}else{
 		rollB();
+	$("#r2f80").text(pinCount);	
 	console.log("frame 8 roll 2 :"+pinCount);
 	var roll2 = pinCount;
 	fr.frame8roll2 = roll2;
@@ -492,6 +507,7 @@ function frame8roll2(){
 //frame 9
 function frame9roll1(){
 	rollA(9);
+	$("#r1f90").text(pinCount);
 	console.log("frame 9 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -516,6 +532,7 @@ function frame9roll2(){
 		msg = "no second roll because you had a strike";
 	}else{
 		rollB();
+	$("#r2f90").text(pinCount);	
 	console.log("frame 9 roll 2 :"+pinCount);
 	var roll2 = pinCount;
 	fr.frame9roll2 = roll2;
@@ -542,6 +559,7 @@ function frame9roll2(){
 //frame 10
 function frame10roll1(){
 	rollA(10);
+	$("#r1f100").text(pinCount);
 	console.log("frame 10 roll 1 :"+pinCount);
 	var pinsUp = calculatePinsUpRoll1(pinCount);
 	var roll1 = pinCount;
@@ -566,6 +584,7 @@ function frame10roll1(){
 function frame10roll2(){
 	var msg = "";
 		rollB();
+	$("#r2f100").text(pinCount);	
 	console.log("frame 10 roll 2 :"+pinCount);
 	var roll2 = pinCount;
 	fr.frame10roll2 = roll2;
@@ -702,6 +721,7 @@ function frame10roll3(){
 		// console.log(pin8);
 		// console.log(pin9);
 		// console.log(pin10);
+	$("#r3f100").text(pinCount);	
 	console.log("frame 10 roll 3 :"+pinCount);
 	var roll3 = pinCount;
 	fr.frame10roll3 = roll3;

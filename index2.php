@@ -179,8 +179,8 @@ function speedBowler(){
 							<?php for($i=1;$i<11;$i++){ ?>
 							<td class="scoreCol bgColorLightest colorMediumHeavy borderDarkest">
 								<ul style="width:80px;">
-									<li>Roll One: {{player.frames[3].rolls[0].total}}</li>
-									<li>Roll Two: {{player.frames[3].rolls[0].total}}</li>
+									<li id="r1f<?php echo $i;?>{{$index}}">Roll One: {{player.frames[3].rolls[0].total}}</li>
+									<li id="r2f<?php echo $i;?>{{$index}}">Roll Two: {{player.playercode[0]}}{{player.frames[3].rolls[0].total}}</li>
 									<li>Score: {{player.frames[3].rolls[0].total+player.frames[3].rolls[1].total}}</li>
 								</ul>	 
 							</td>
@@ -259,6 +259,7 @@ function speedBowler(){
 				$("#bowl").click(
 				function(){
 					if(gameStarted()){
+						wP = getActivePlayer();
 						        if(playerClickCount(wP,1)==1){
 									console.log(frame1roll1());	
 								}else if(playerClickCount(wP,1)==2){
@@ -318,9 +319,6 @@ function speedBowler(){
 			function startGame(){
 				gameStatus=true;
 			};
-			// function switchPlayer(){
-
-			// }
 			// function switchTurn(){
 			// 	var wT = 0;
 			// 	var modP = whatsClickCount()%2;
@@ -329,6 +327,12 @@ function speedBowler(){
 			// };
 			var totalClicks=0;
 			var p1=p2=p3=p4=1;
+			var flipSwitch = 0;
+			function setActivePlayer(){
+				var activePlayer = 0;
+				activePlayer=totalClicks%playersCheckedIn;
+				return activePlayer;
+			}
 
 			// function clickCount(){
 			// 	console.log("need to know this"+totl);
@@ -339,16 +343,35 @@ function speedBowler(){
 			// function whatsClickCount(){
 			// 	return totl;
 			// }
-			function playerClickCount(n,frN){
-				totalClicks++;
+			function playerClickCount(wP,frN){
 				if(frN==10){
+					if(wP==1){
+						var sv = p1;
+						
+						return sv;
+					}
+					else if(wP==2){
+						var sv = p2;
+						
+						return sv;				
+					}	
+					else if(wP==3){
+						var sv = p3;
+						
+						return sv;				
+					}
+					else if(wP==4){	
+						var sv = p4;
+						
+						return sv;				
+					}
 					// if(strike or spare){
 					//var wP=totalClicks%3;
 					// }
 				}else{
-				var wP=totalClicks%2;
 				if(wP==1){
 					var sv = p1;
+
 					p1++;
 					return sv;
 				}
