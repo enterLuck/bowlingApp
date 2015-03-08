@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en" ng-app="bowlingApp">
+<head>
+	<meta charset="utf-8" />
+	<title>Bowler World</title>
+
+			<script src="frame-rolls.js"></script>
+			<script>
+			var pins = {};
+			var pins = {
+				pin1:0,
+				pin2:0,
+				pin3:0,
+				pin4:0,
+				pin5:0,
+				pin6:0,
+				pin7:0,
+				pin8:0,
+				pin9:0,
+				pin10:0,
+				totalPins:0
+			};var fr = {};
+var fr = {
+	frame1roll1:0,
+	frame1roll2:0,
+	frame1strike:"",
+	frame1spare:"",
+	frame1storeTotal:0,
+	frame1total:function(){
+		var total = parseInt(this.frame1roll1)+parseInt(this.frame1roll2);
+		return total;
+	},	
+	frame2roll1:0,
+	frame2roll2:0,
+	frame2strike:"",
+	frame2spare:"",
+	frame2storeTotal:0,
+	frame2total:function(){
+		var total = parseInt(this.frame2roll1)+parseInt(this.frame2roll2);
+		return total;
+	},	
+	frame3roll1:0,
+	frame3roll2:0,
+	frame3strike:"",
+	frame3spare:"",
+	frame3storeTotal:0,
+	frame3total:function(){
+		var total = parseInt(this.frame3roll1)+parseInt(this.frame3roll2);
+		return total;
+	},	
+	frame4roll1:0,
+	frame4roll2:0,
+	frame4strike:"",
+	frame4spare:"",	
+	frame4storeTotal:0,
+	frame4total:function(){
+		var total = parseInt(this.frame4roll1)+parseInt(this.frame4roll2);
+		return total;
+	},	
+	frame5roll1:0,
+	frame5roll2:0,
+	frame5strike:"",
+	frame5spare:"",	
+	frame5storeTotal:0,
+	frame5total:function(){
+		var total = parseInt(this.frame5roll1)+parseInt(this.frame5roll2);
+		return total;
+	},	
+	frame6roll1:0,
+	frame6roll2:0,
+	frame6strike:"",
+	frame6spare:"",	
+	frame6storeTotal:0,
+	frame6total:function(){
+		var total = parseInt(this.frame6roll1)+parseInt(this.frame6roll2);
+		return total;
+	},	
+	frame7roll1:0,
+	frame7roll2:0,
+	frame7strike:"",
+	frame7spare:"",	
+	frame7storeTotal:0,
+	frame7total:function(){
+		var total = parseInt(this.frame7roll1)+parseInt(this.frame7roll2);
+		return total;
+	},	
+	frame8roll1:0,
+	frame8roll2:0,	
+	frame8strike:"",
+	frame8spare:"",	
+	frame8storeTotal:0,
+	frame8total:function(){
+		var total = parseInt(this.frame8roll1)+parseInt(this.frame8roll2);
+		return total;
+	},	
+	frame9roll1:0,
+	frame9roll2:0,
+	frame9strike:"",
+	frame9spare:"",	
+	frame9storeTotal:0,
+	frame9total:function(){
+		var total = parseInt(this.frame9roll1)+parseInt(this.frame9roll2);
+		return total;
+	},	
+	frame10roll1:0,
+	frame10roll2:0,
+	frame10roll3:0,
+	frame10roll1strike:"",
+	frame10spare:"",	
+	frame10roll2strike:"",
+	frame10get3check:false,
+	frame10roll3strike:"",
+	frame10storeTotal:0,
+	frame10total:function(){
+		var total = parseInt(this.frame10roll1)+parseInt(this.frame10roll2)+parseInt(this.frame10roll3);
+		return total;
+	}		
+};
+			</script>
+			<script>
+
+			// This variable is the number of bowlers
+			var numberOfPlayers = 0;
+			// This variable is the player who is currently bowling
+			var activePlayer = 1;
+			// This variable is the current frame all bowlers are bowling
+			var currentFrame = 1;
+			// This variable is the current roll count for a single player on a single frame
+			var rollcnt = 1;
+
+			//******
+			// This function is triggered by clicking on the BOWL ui button
+			// Its purpose is to bowl the ball for the current player
+			// It triggers a roll which uses a pin generator 
+			// It also updates the active player and frame
+			// The pin generator also automatically triggers the roll count 
+			//    that is output to the ui
+			//******
+			function bowl(){
+			//****** Triggers the roll for the active player
+				var rolling = "frame"+currentFrame+"roll"+rollcnt+"("+activePlayer+")";
+				console.log(rolling);
+				eval(rolling);
+			//****** Updates activePlayer or currentFrame when necessary
+				if(rollcnt<2){ // NOT ACCURATE FOR FRAME 10 if third roll occurs
+					rollcnt++; // increment roll count
+				}else{
+					rollcnt=1; // reset roll count
+					console.log(getNumberOfPlayers());
+					if( activePlayer < getNumberOfPlayers() ){
+						activePlayer++;
+					}else{
+						activePlayer=1;
+						currentFrame++;
+					} //end else
+				} //end else
+				return activePlayer; // return active player 
+			};	// end bowl function
+			
+			//******** Helper Methods ***************
+
+			// Returns the number of players
+			function getNumberOfPlayers(){
+				return numberOfPlayers;
+			};
+
+			// Takes the user popup input of the quantity of players and stores it
+			function setNumberOfPlayers(num){
+				numberOfPlayers = num;
+			};
+			//***************************************
+
+
+			// TESTING PURPOSES ONLY
+			var n = Math.floor(Math.random()*5);
+				setNumberOfPlayers(n);console.log(getNumberOfPlayers());
+			for(i=0;i<30;i++){
+				bowl();
+			};
+</script>
+<body></body>
+</html>

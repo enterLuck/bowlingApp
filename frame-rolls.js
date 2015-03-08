@@ -1,19 +1,30 @@
+
+// This javascript file contains the pin generator, rolls, and frames
+
+//******* 
+// These variables are booleans for the standing of a single pin
+// Pins remaining at zero are still standing and pins set to 1 are knocked down
+//******* 
 var pin1=pin2=pin3=pin4=pin5=pin6=pin7=pin8=pin9=pin10 = 0;
-var pinCount = pin1+pin2+pin3+pin4+pin5+pin6+pin7+pin8+pin9+pin10;
+// Total the pins down for a single roll
+var totalPins = pin1+pin2+pin3+pin4+pin5+pin6+pin7+pin8+pin9+pin10;
+
+// This function simulates the knocking of pins for the first roll of a frame 
+//   for a single player.
 
 function rollA(frameNum){	
-	 pin1 = Math.floor(Math.random()*2);
-	 pin2 = Math.floor(Math.random()*2);
-	 pin3 = Math.floor(Math.random()*2);
-	 pin4 = Math.floor(Math.random()*2);
-	 pin5 = Math.floor(Math.random()*2);
-	 pin6 = Math.floor(Math.random()*2);
-	 pin7 = Math.floor(Math.random()*2);
-	 pin8 = Math.floor(Math.random()*2);
-	 pin9 = Math.floor(Math.random()*2);
-	 pin10 = Math.floor(Math.random()*2);
+	pin1 = Math.floor(Math.random()*2);
+	pin2 = Math.floor(Math.random()*2);
+	pin3 = Math.floor(Math.random()*2);
+	pin4 = Math.floor(Math.random()*2);
+	pin5 = Math.floor(Math.random()*2);
+	pin6 = Math.floor(Math.random()*2);
+	pin7 = Math.floor(Math.random()*2);
+	pin8 = Math.floor(Math.random()*2);
+	pin9 = Math.floor(Math.random()*2);
+	pin10 = Math.floor(Math.random()*2);
+	totalPins = pin1+pin2+pin3+pin4+pin5+pin6+pin7+pin8+pin9+pin10;
 
-	pinCount = pin1+pin2+pin3+pin4+pin5+pin6+pin7+pin8+pin9+pin10;
 	pins.pin1 = pin1;
 	pins.pin2 = pin2;
 	pins.pin3 = pin3;
@@ -24,6 +35,8 @@ function rollA(frameNum){
 	pins.pin8 = pin8;
 	pins.pin9 = pin9;
 	pins.pin10 = pin10;
+	pins.totalPins = totalPins;
+	// TESTING PURPOSES ONLY
 	// console.log(pin1);
 	// console.log(pin2);
 	// console.log(pin3);
@@ -34,8 +47,12 @@ function rollA(frameNum){
 	// console.log(pin8);
 	// console.log(pin9);
 	// console.log(pin10);
-	calcSpareOnly(pinCount,frameNum);
+	calcSpareOnly(totalPins,frameNum); //calculate if last roll was a spare 
 }
+
+// This function simulates the knocking of pins for the second roll of a frame 
+//   for a single player. Pins down in the first roll must be considered.
+
 function rollB(){
  		pin1=pin2=pin3=pin4=pin5=pin6=pin7=pin8=pin9=pin10 = 0;
 		if(pins.pin1!=1){
@@ -68,8 +85,11 @@ function rollB(){
 		if(pins.pin10!=1){
 		 pin10 = Math.floor(Math.random()*2);
 		}
-
-		pinCount = pin1+pin2+pin3+pin4+pin5+pin6+pin7+pin8+pin9+pin10;
+		// Add up the additional pins knocked down to the already knocked down pins
+		totalPins = pin1+pin2+pin3+pin4+pin5+pin6+pin7+pin8+pin9+pin10+pins.totalPins;
+		// Reassign the knocked down pins
+		pins.totalPins = totalPins;
+		// TESTING PURPOSES ONLY
 		// console.log(pin1);
 		// console.log(pin2);
 		// console.log(pin3);
@@ -80,23 +100,43 @@ function rollB(){
 		// console.log(pin8);
 		// console.log(pin9);
 		// console.log(pin10);
-}
-function calculatePinsUpRoll1(pinCount){
-	return 10-pinCount;
-}
+};
+
+//******** Helper Methods ***************
+// This function returns the remaining pins from roll 1
+function calculatePinsUpRoll1(totalPins){
+	return 10-totalPins;
+};
+
+// This function returns the remaining pins from roll 2
 function calculatePinsUpRoll2(rolls){
 	return 10-rolls;
-}
+};
 
-//frame 1
-function frame1roll1(){
-	console.log("Yo got here");
-	rollA(1);
-	$("#r1f10").text(pinCount);
-	console.log("frame 1 roll 1 :"+pinCount);
-	var pinsUp = calculatePinsUpRoll1(pinCount);
-	var roll1 = pinCount;
+
+//***************************************
+//*********** FRAME ROLLS ***************
+//***************************************
+
+	// Note: Each function has active player as a parameter
+
+//****** FRAME1 ROLL1 ******* 
+
+function frame1roll1(plr){
+
+	rollA(1); // Trigger first roll 
+	
+	$("#r1f1"+plr).text(pins.totalPins); // Assign total to the ui
+
+	console.log("frame 1 roll 1 :"+pins.totalPins); // TESTING PURPOSES ONLY
+
+	// Temporarily store the number pins standing using calculator method
+	var pinsUp = calculatePinsUpRoll1(pins.totalPins);
+
+	var roll1 = pins.totalPins; // Assign total pins to temporary roll variable
+
 	fr.frame1roll1 = roll1;
+	
 	var msg = "";
 	if(roll1>9){
 		msg="Strike";
@@ -108,18 +148,20 @@ function frame1roll1(){
 	}else{
 		msg = "err";
 	}
-	console.log(msg);
 	return msg;
 };
-function frame1roll2(){
+
+//****** FRAME1 ROLL2 ******* 
+
+function frame1roll2(plr){
 	var msg = "";
 	if(fr.frame1roll1>9){
 		msg = "no second roll because you had a strike";
 	}else{
 		rollB();
-	$("#r2f10").text(pinCount);	
-	console.log("frame 1 roll 2 :"+pinCount);
-	var roll2 = pinCount;
+	$("#r2f1"+plr).text(totalPins);	
+	console.log("frame 1 roll 2 :"+totalPins);
+	var roll2 = totalPins;
 	fr.frame1roll2 = roll2;
 	var rolls = parseInt(fr.frame1roll1)+parseInt(fr.frame1roll2);
 	calcStrikeOnly(1,rolls);
@@ -142,12 +184,12 @@ function frame1roll2(){
 	}
 };
 //frame 2
-function frame2roll1(){
+function frame2roll1(plr){
 	rollA(2);
-	$("#r1f20").text(pinCount);
-	console.log("frame 2 roll 1 :"+pinCount);
-	var pinsUp = calculatePinsUpRoll1(pinCount);
-	var roll1 = pinCount;
+	$("#r1f2"+plr).text(totalPins);
+	console.log("frame 2 roll 1 :"+totalPins);
+	var pinsUp = calculatePinsUpRoll1(totalPins);
+	var roll1 = totalPins;
 	fr.frame2roll1 = roll1;
 	var msg = "";
 	if(roll1>9){
@@ -163,15 +205,15 @@ function frame2roll1(){
 	console.log(msg);
 	return msg;
 };
-function frame2roll2(){
+function frame2roll2(plr){
 	var msg = "";
 	if(fr.frame2roll1>9){
 		msg = "no second roll because you had a strike";
 	}else{
 		 rollB();
-	$("#r2f20").text(pinCount); 
-	console.log("frame 2 roll 2 :"+pinCount);
-	var roll2 = pinCount;
+	$("#r2f2"+plr).text(totalPins); 
+	console.log("frame 2 roll 2 :"+totalPins);
+	var roll2 = totalPins;
 	fr.frame2roll2 = roll2;
 	var rolls = parseInt(fr.frame2roll1)+parseInt(fr.frame2roll2);
 	calcStrikeOnly(2,rolls);
@@ -194,12 +236,12 @@ function frame2roll2(){
 	}
 };
 //frame 3
-function frame3roll1(){
+function frame3roll1(plr){
 	rollA(3);
-	$("#r1f30").text(pinCount);
-	console.log("frame 3 roll 1 :"+pinCount);
-	var pinsUp = calculatePinsUpRoll1(pinCount);
-	var roll1 = pinCount;
+	$("#r1f3"+plr).text(totalPins);
+	console.log("frame 3 roll 1 :"+totalPins);
+	var pinsUp = calculatePinsUpRoll1(totalPins);
+	var roll1 = totalPins;
 	fr.frame3roll1 = roll1;
 	var msg = "";
 	if(roll1>9){
@@ -215,15 +257,15 @@ function frame3roll1(){
 	console.log(msg);
 	return msg;
 };
-function frame3roll2(){
+function frame3roll2(plr){
 	var msg = "";
 	if(fr.frame3roll1>9){
 		msg = "no second roll because you had a strike";
 	}else{
 		rollB();
-	$("#r2f30").text(pinCount);	
-	console.log("frame 3 roll 2 :"+pinCount);
-	var roll2 = pinCount;
+	$("#r2f3"+plr).text(totalPins);	
+	console.log("frame 3 roll 2 :"+totalPins);
+	var roll2 = totalPins;
 	fr.frame3roll2 = roll2;
 	var rolls = parseInt(fr.frame3roll1)+parseInt(fr.frame3roll2);
 	calcStrikeOnly(3,rolls);
@@ -246,12 +288,12 @@ function frame3roll2(){
 	}
 };
 //frame 4
-function frame4roll1(){
+function frame4roll1(plr){
 	rollA(4);
-	$("#r1f40").text(pinCount);
-	console.log("frame 4 roll 1 :"+pinCount);
-	var pinsUp = calculatePinsUpRoll1(pinCount);
-	var roll1 = pinCount;
+	$("#r1f4"+plr).text(totalPins);
+	console.log("frame 4 roll 1 :"+totalPins);
+	var pinsUp = calculatePinsUpRoll1(totalPins);
+	var roll1 = totalPins;
 	fr.frame4roll1 = roll1;
 	var msg = "";
 	if(roll1>9){
@@ -267,15 +309,15 @@ function frame4roll1(){
 	console.log(msg);
 	return msg;
 };
-function frame4roll2(){
+function frame4roll2(plr){
 	var msg = "";
 	if(fr.frame4roll1>9){
 		msg = "no second roll because you had a strike";
 	}else{
 		 rollB();
-	$("#r2f40").text(pinCount);	 
-	console.log("frame 4 roll 2 :"+pinCount);
-	var roll2 = pinCount;
+	$("#r2f4"+plr).text(totalPins);	 
+	console.log("frame 4 roll 2 :"+totalPins);
+	var roll2 = totalPins;
 	fr.frame4roll2 = roll2;
 	var rolls = parseInt(fr.frame4roll1)+parseInt(fr.frame4roll2);
 	calcStrikeOnly(4,rolls);
@@ -298,12 +340,12 @@ function frame4roll2(){
 	}
 };
 //frame 5
-function frame5roll1(){
+function frame5roll1(plr){
 	rollA(5);
-	$("#r1f50").text(pinCount);
-	console.log("frame 5 roll 1 :"+pinCount);
-	var pinsUp = calculatePinsUpRoll1(pinCount);
-	var roll1 = pinCount;
+	$("#r1f5"+plr).text(totalPins);
+	console.log("frame 5 roll 1 :"+totalPins);
+	var pinsUp = calculatePinsUpRoll1(totalPins);
+	var roll1 = totalPins;
 	fr.frame5roll1 = roll1;
 	var msg = "";
 	if(roll1>9){
@@ -319,15 +361,15 @@ function frame5roll1(){
 	console.log(msg);
 	return msg;
 };
-function frame5roll2(){
+function frame5roll2(plr){
 	var msg = "";
 	if(fr.frame5roll1>9){
 		msg = "no second roll because you had a strike";
 	}else{
 		rollB();
-	$("#r2f50").text(pinCount);	
-	console.log("frame 5 roll 2 :"+pinCount);
-	var roll2 = pinCount;
+	$("#r2f5"+plr).text(totalPins);	
+	console.log("frame 5 roll 2 :"+totalPins);
+	var roll2 = totalPins;
 	fr.frame5roll2 = roll2;
 	var rolls = parseInt(fr.frame5roll1)+parseInt(fr.frame5roll2);
 	calcStrikeOnly(5,rolls);
@@ -350,12 +392,12 @@ function frame5roll2(){
 	}
 };
 //frame 6
-function frame6roll1(){
+function frame6roll1(plr){
 	rollA(6);
-	$("#r1f60").text(pinCount);
-	console.log("frame 6 roll 1 :"+pinCount);
-	var pinsUp = calculatePinsUpRoll1(pinCount);
-	var roll1 = pinCount;
+	$("#r1f6"+plr).text(totalPins);
+	console.log("frame 6 roll 1 :"+totalPins);
+	var pinsUp = calculatePinsUpRoll1(totalPins);
+	var roll1 = totalPins;
 	fr.frame6roll1 = roll1;
 	var msg = "";
 	if(roll1>9){
@@ -371,15 +413,15 @@ function frame6roll1(){
 	console.log(msg);
 	return msg;
 };
-function frame6roll2(){
+function frame6roll2(plr){
 	var msg = "";
 	if(fr.frame6roll1>9){
 		msg = "no second roll because you had a strike";
 	}else{
 		rollB();
-	$("#r2f60").text(pinCount);		
-	console.log("frame 6 roll 2 :"+pinCount);
-	var roll2 = pinCount;
+	$("#r2f6"+plr).text(totalPins);		
+	console.log("frame 6 roll 2 :"+totalPins);
+	var roll2 = totalPins;
 	fr.frame6roll2 = roll2;
 	var rolls = parseInt(fr.frame6roll1)+parseInt(fr.frame6roll2);
 	calcStrikeOnly(6,rolls);
@@ -402,11 +444,11 @@ function frame6roll2(){
 	}
 };
 //frame 7
-function frame7roll1(){
+function frame7roll1(plr){
 	rollA(7);
-	console.log("frame 7 roll 1 :"+pinCount);
-	var pinsUp = calculatePinsUpRoll1(pinCount);
-	var roll1 = pinCount;
+	console.log("frame 7 roll 1 :"+totalPins);
+	var pinsUp = calculatePinsUpRoll1(totalPins);
+	var roll1 = totalPins;
 	fr.frame7roll1 = roll1;
 	var msg = "";
 	if(roll1>9){
@@ -422,15 +464,15 @@ function frame7roll1(){
 	console.log(msg);
 	return msg;
 };
-function frame7roll2(){
+function frame7roll2(plr){
 	var msg = "";
 	if(fr.frame7roll1>9){
 		msg = "no second roll because you had a strike";
 	}else{
 		rollB();
-	$("#r2f70").text(pinCount);	
-	console.log("frame 7 roll 2 :"+pinCount);
-	var roll2 = pinCount;
+	$("#r2f7"+plr).text(totalPins);	
+	console.log("frame 7 roll 2 :"+totalPins);
+	var roll2 = totalPins;
 	fr.frame7roll2 = roll2;
 	var rolls = parseInt(fr.frame7roll1)+parseInt(fr.frame7roll2);
 	calcStrikeOnly(7,rolls);
@@ -453,12 +495,12 @@ function frame7roll2(){
 	}
 };
 //frame 8
-function frame8roll1(){
+function frame8roll1(plr){
 	rollA(8);
-	$("#r1f80").text(pinCount);
-	console.log("frame 8 roll 1 :"+pinCount);
-	var pinsUp = calculatePinsUpRoll1(pinCount);
-	var roll1 = pinCount;
+	$("#r1f8"+plr).text(totalPins);
+	console.log("frame 8 roll 1 :"+totalPins);
+	var pinsUp = calculatePinsUpRoll1(totalPins);
+	var roll1 = totalPins;
 	fr.frame8roll1 = roll1;
 	var msg = "";
 	if(roll1>9){
@@ -474,15 +516,15 @@ function frame8roll1(){
 	console.log(msg);
 	return msg;
 };
-function frame8roll2(){
+function frame8roll2(plr){
 	var msg = "";
 	if(fr.frame8roll1>9){
 		msg = "no second roll because you had a strike";
 	}else{
 		rollB();
-	$("#r2f80").text(pinCount);	
-	console.log("frame 8 roll 2 :"+pinCount);
-	var roll2 = pinCount;
+	$("#r2f8"+plr).text(totalPins);	
+	console.log("frame 8 roll 2 :"+totalPins);
+	var roll2 = totalPins;
 	fr.frame8roll2 = roll2;
 	var rolls = parseInt(fr.frame8roll1)+parseInt(fr.frame8roll2);
 	calcStrikeOnly(8,rolls);
@@ -505,12 +547,12 @@ function frame8roll2(){
 	}
 };
 //frame 9
-function frame9roll1(){
+function frame9roll1(plr){
 	rollA(9);
-	$("#r1f90").text(pinCount);
-	console.log("frame 9 roll 1 :"+pinCount);
-	var pinsUp = calculatePinsUpRoll1(pinCount);
-	var roll1 = pinCount;
+	$("#r1f9"+plr).text(totalPins);
+	console.log("frame 9 roll 1 :"+totalPins);
+	var pinsUp = calculatePinsUpRoll1(totalPins);
+	var roll1 = totalPins;
 	fr.frame9roll1 = roll1;
 	var msg = "";
 	if(roll1>9){
@@ -526,15 +568,15 @@ function frame9roll1(){
 	console.log(msg);
 	return msg;
 };
-function frame9roll2(){
+function frame9roll2(plr){
 	var msg = "";
 	if(fr.frame9roll1>9){
 		msg = "no second roll because you had a strike";
 	}else{
 		rollB();
-	$("#r2f90").text(pinCount);	
-	console.log("frame 9 roll 2 :"+pinCount);
-	var roll2 = pinCount;
+	$("#r2f9"+plr).text(totalPins);	
+	console.log("frame 9 roll 2 :"+totalPins);
+	var roll2 = totalPins;
 	fr.frame9roll2 = roll2;
 	var rolls = parseInt(fr.frame9roll1)+parseInt(fr.frame9roll2);
 	calcStrikeOnly(9,rolls);
@@ -557,12 +599,12 @@ function frame9roll2(){
 	}
 };
 //frame 10
-function frame10roll1(){
+function frame10roll1(plr){
 	rollA(10);
-	$("#r1f100").text(pinCount);
-	console.log("frame 10 roll 1 :"+pinCount);
-	var pinsUp = calculatePinsUpRoll1(pinCount);
-	var roll1 = pinCount;
+	$("#r1f10"+plr).text(totalPins);
+	console.log("frame 10 roll 1 :"+totalPins);
+	var pinsUp = calculatePinsUpRoll1(totalPins);
+	var roll1 = totalPins;
 	fr.frame10roll1 = roll1;
 	var msg = "";
 	if(roll1>9){
@@ -581,12 +623,12 @@ function frame10roll1(){
 	return msg;
 };
 
-function frame10roll2(){
+function frame10roll2(plr){
 	var msg = "";
 		rollB();
-	$("#r2f100").text(pinCount);	
-	console.log("frame 10 roll 2 :"+pinCount);
-	var roll2 = pinCount;
+	$("#r2f10"+plr).text(totalPins);	
+	console.log("frame 10 roll 2 :"+totalPins);
+	var roll2 = totalPins;
 	fr.frame10roll2 = roll2;
 	var rolls = parseInt(fr.frame10roll1)+parseInt(fr.frame10roll2);
 	calcStrikeOnly(10,rolls);
@@ -670,7 +712,7 @@ function autoCheckforRoll3(){
 	}else;
 	return fr.frame10get3check;
 }
-function frame10roll3(){
+function frame10roll3(plr){
 	var msg = "";
 	if(autoCheckforRoll3()){
 		if(fr.frame10roll1strike==="X"&&fr.frame10roll2strike==="X"){
@@ -710,7 +752,7 @@ function frame10roll3(){
 		var pin10 = Math.floor(Math.random()*2);
 		}
 
-		var pinCount = pin1+pin2+pin3+pin4+pin5+pin6+pin7+pin8+pin9+pin10;
+		var totalPins = pin1+pin2+pin3+pin4+pin5+pin6+pin7+pin8+pin9+pin10;
 		// console.log(pin1);
 		// console.log(pin2);
 		// console.log(pin3);
@@ -721,9 +763,9 @@ function frame10roll3(){
 		// console.log(pin8);
 		// console.log(pin9);
 		// console.log(pin10);
-	$("#r3f100").text(pinCount);	
-	console.log("frame 10 roll 3 :"+pinCount);
-	var roll3 = pinCount;
+	$("#r3f10"+plr).text(totalPins);	
+	console.log("frame 10 roll 3 :"+totalPins);
+	var roll3 = totalPins;
 	fr.frame10roll3 = roll3;
 	var frame10roll1and2 = parseInt(fr.frame10roll1)+parseInt(fr.frame10roll2);
 	if(fr.frame10roll1>9&&fr.frame10roll2>9&&roll3>9){
@@ -802,15 +844,15 @@ function frame10roll3(){
 	}
 };
 
-function calcSpareOnly(pinCount,frameNum){
+function calcSpareOnly(totalPins,frameNum){
 	// 1 frame ago spare equals current pins plus 10
 	var previousFrameNum = frameNum - 1;
 	console.log(frameNum);
 	console.log(previousFrameNum);
 	if(fr["frame"+previousFrameNum+"spare"] =="/"){
-		console.log(parseInt(pinCount));
+		console.log(parseInt(totalPins));
 
-		fr["frame"+previousFrameNum+"storeTotal"] = parseInt(fr["frame"+previousFrameNum+"total"]()) + parseInt(pinCount);
+		fr["frame"+previousFrameNum+"storeTotal"] = parseInt(fr["frame"+previousFrameNum+"total"]()) + parseInt(totalPins);
 			console.log(fr["frame"+previousFrameNum+"storeTotal"]);
 			return fr["frame"+previousFrameNum+"storeTotal"];
 	}else{

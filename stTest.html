@@ -6,15 +6,47 @@
 
 
 			<script>
-			
-			function switchPlayer(){
-				for(i=0;i<2;i++){
-					console.log(i);
+
+			var pCount = 0;
+			playersCheckingIn(4);
+			console.log(howManyChecked());
+			var playerqty = 0;
+			playerqty =playersCheckedIn();
+			var currentplayer = 1;
+			var currentFrame = 1;
+			var rollcnt = 1;
+			function bowl(){
+
+				//console.log("f"+currentFrame);
+				//console.log("r"+rollcnt);
+				 //console.log(playerqty);
+				 console.log("currentplayer"+currentplayer);
+				if(rollcnt<2){
+					rollcnt++;
+				}else{
+					rollcnt=1;
+					if(currentplayer<playerqty){
+						currentplayer++;
+					}else{
+						currentplayer=1;
+						currentFrame++;
+					}
 				}
-				return "ok";
+				return currentplayer;
+			};	
+
+			function playersCheckedIn(qty){
+				return pCount;
 			};
-			for(i=0;i<10;i++){
-				console.log(switchPlayer());
+			function playersCheckingIn(qty){
+				pCount = qty;
+			};
+			function howManyChecked(){
+				return pCount;
+			};
+			// playersCheckingIn(3);
+			for(i=0;i<30;i++){
+				bowl();
 			}
 </script>
 <body></body>
